@@ -1,0 +1,13 @@
+class CreateProviderActions < ActiveRecord::Migration[6.0]
+  def change
+    create_table :provider_actions do |t|
+      t.string :name
+      t.integer :quantity
+      t.boolean :disabled
+      t.references :user, null: false, foreign_key: true
+      t.references :provider, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
