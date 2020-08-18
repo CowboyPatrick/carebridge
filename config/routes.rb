@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :buttons, only:[:index, :show]
+  resources :orders, only:[:index, :create]
   resources :users, only:[:new, :create] do
     resources :buttons, only:[:new, :create]
   end
