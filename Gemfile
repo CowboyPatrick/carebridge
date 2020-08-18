@@ -31,10 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 
 # Added Gems
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'autoprefixer-rails'
+gem 'cloudinary', '~> 1.12.0'
 gem 'font-awesome-sass'
 gem 'pundit'
 gem 'simple_form'
+
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
