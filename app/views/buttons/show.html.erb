@@ -1,6 +1,9 @@
 <h1><%= @button.name %></h1>
-<% @button.provider_actions.each do |provideraction| %>
-  <% if provideraction.disabled == false %>
-    <p><%= provideraction.name%></p>
+<%= simple_form_for(@order) do |f| %>
+  <% @button.provider_actions.each do |provider_action| %>
+    <= f.simple_fields_for :order_items do |order_items_form| %>
+      <%= order_items_form.input :provider_action_id,as: :boolean, checked_value: provider_action.id,unchecked_value: "", label: provider_action.name, input_html: { value: provider_action.id }%>
+    <% end %>
   <% end %>
-<% end%>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

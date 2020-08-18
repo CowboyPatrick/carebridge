@@ -6,6 +6,8 @@ class ButtonsController < ApplicationController
   def show
     @button = Button.find(params[:id])
     authorize @button
+    @order = Order.new
+    @order.order_items.build
   end
 
   private
