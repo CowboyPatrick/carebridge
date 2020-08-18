@@ -1,9 +1,17 @@
-<h1><%= @button.name %></h1>
-<%= simple_form_for(@order) do |f| %>
-  <% @button.provider_actions.each do |provider_action| %>
-    <= f.simple_fields_for :order_items do |order_items_form| %>
-      <%= order_items_form.input :provider_action_id,as: :boolean, checked_value: provider_action.id,unchecked_value: "", label: provider_action.name, input_html: { value: provider_action.id }%>
-    <% end %>
+<div class="form-order">
+  <h1><%= @button.name %></h1>
+  <%= simple_form_for(@order) do |f| %>
+    <div class="form-group">
+      <label class="control-label check_boxes">Actions</label>
+      <div class="category-choices">
+        <% @button.provider_actions.each_with_index do |provider_action, index| %>
+          <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
+          <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
+            <%= provider_action.name %>
+          </label>
+        <% end %>
+      </div>
+    </div>
+    <%= f.submit class: 'btn btn-primary' %>
   <% end %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+</div>

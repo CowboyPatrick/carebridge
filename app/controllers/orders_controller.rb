@@ -5,9 +5,12 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.save
-    raise
-
+    if @order.save
+      redirect_to orders_path
+    else
+      render 'buttons/show.html.erb'
+    end
+    authorize @order
   end
 
   def order_params
