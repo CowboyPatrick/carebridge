@@ -1,22 +1,4 @@
-<div class="grid-container">
-  <div class="grid-item">
-    <a href="#">
-      <img src="https://picsum.photos/400" alt="actionbutton">
-      <h1>Title</h1>
-    </a>
-  </div>
-  <div class="grid-item">
-    <a href="#">
-      <img src="https://picsum.photos/400" alt="actionbutton">
-      <h1>Title</h1>
-    </a>
-  </div>
-  <div class="grid-item">
-    <a href="#">
-      <img src="https://picsum.photos/400" alt="actionbutton">
-      <h1>Title</h1>
-    </a>
-  </div>
+<!-- <div class="grid-container">
   <div class="grid-item">
     <a href="#">
       <img src="https://picsum.photos/400" alt="actionbutton">
@@ -35,4 +17,16 @@
       <h1>Add new</h1>
     </a>
   </div>
+</div> -->
+<div class="grid-container">
+  <% @buttons.each do |button| %>
+    <ul class="grid-item-group">
+      <%= link_to button_path(button.id) do %>
+        <li class="grid-item">
+          <img src="https://picsum.photos/400" alt="actionbutton">
+          <h1> <%= button.name %> </h1>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

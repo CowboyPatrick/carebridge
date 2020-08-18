@@ -10,22 +10,23 @@
   height: 100vh;
 }
 
-.grid-item {
+.grid-item-group {
   // height: 400px;
   a {
     text-decoration: none;
   }
 }
 
-.grid-item img {
+.grid-item-group img {
   border-radius: 50%;
   height: 300px;
   width: 300px;
   border: 3px solid rgba(230px, 230px, 30px, 0.4);
   box-shadow: 0 0 8px #ACB8E8;
+}
 
-
-
+.grid-item-group {
+  list-style-type: none;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
