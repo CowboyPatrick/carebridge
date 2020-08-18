@@ -4,4 +4,16 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def dashboard?
+    true
+  end
 end

@@ -1,16 +1,35 @@
 class ButtonsController < ApplicationController
+
   def index
     @buttons = policy_scope(Button)
   end
 
   def show
-    @button = Button.find(param[:id])
+    @button = Button.find(params[:id])
     authorize @button
+  end
+
+  def new
+    @button = Button.new
+    authorize @button
+    @senior = User.find(params[:user_id])
+  end
+
+  def create
+    @button = Button.new(button_params)
+    @senior = User.find(params[:user_id])
+    @button.user = @senior
+    authorize @button
+    if @button.save
+      redirect_to '/dashboard'
+    else
+      render :new
+    end
   end
 
   private
 
   def button_params
-    params.require(:button).permit(:name, :photo)
+    params.require(:button).permit(:name, :photo, :provider_id, :user )
   end
 end
