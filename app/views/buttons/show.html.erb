@@ -1,0 +1,6 @@
+<h1><%= @button.name %></h1>
+<% @button.provider_actions.each do |provideraction| %>
+  <%= link_to orders_path do %>
+    <p><%= provideraction.name%></p>
+  <%end%>
+<% end%>

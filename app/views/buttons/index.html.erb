@@ -1,0 +1,5 @@
+<% @buttons.each do |button| %>
+  <%= link_to buttons_path(button.id) do %>
+    <%=button.name%>
+  <%end%>
+<% end %>
