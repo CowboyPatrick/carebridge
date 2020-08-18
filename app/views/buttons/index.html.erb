@@ -1,5 +1,1 @@
-<% @buttons.each do |button| %>
-  <%= link_to button_path(button.id) do %>
-    <%=button.name%>
-  <%end%>
-<% end %>
+<%= render 'shared/card-buttons' %>
