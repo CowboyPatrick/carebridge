@@ -1,0 +1,8 @@
+<!-- new.html.erb FOR MAKING A NEW BUTTON -->
+<div class="container">
+  <%= simple_form_for [ @senior, @button ] do |f| %>
+    <%= f.input :name %>
+    <%= f.association :provider %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
