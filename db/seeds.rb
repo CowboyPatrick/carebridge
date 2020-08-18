@@ -15,9 +15,10 @@ SHOPPINGLIST = ['milk', 'honey', 'whiskey', 'eggs', 'maguro sashimi', 'tofu', 'r
 puts 'Destroying all Seeds..'
 
 Button.delete_all
+ProviderAction.delete_all
 User.delete_all
 Provider.delete_all
-ProviderAction.delete_all
+
 
 
 
