@@ -1,7 +1,11 @@
 class ButtonPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      user.buttons
     end
+  end
+
+  def show?
+    true
   end
 end
