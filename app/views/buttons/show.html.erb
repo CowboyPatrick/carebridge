@@ -1,6 +1,6 @@
 <h1><%= @button.name %></h1>
 <% @button.provider_actions.each do |provideraction| %>
-  <%= link_to orders_path do %>
+  <% if provideraction.disabled == false %>
     <p><%= provideraction.name%></p>
-  <%end%>
+  <% end %>
 <% end%>

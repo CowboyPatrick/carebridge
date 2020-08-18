@@ -4,7 +4,7 @@ class ButtonsController < ApplicationController
   end
 
   def show
-    @button = Button.find(param[:id])
+    @button = Button.find(params[:id])
     authorize @button
   end
 
