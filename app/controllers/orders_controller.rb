@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to orders_path
     else
-      render 'buttons/show.html.erb'
+      render :show
     end
     authorize @order
   end
