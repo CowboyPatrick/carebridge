@@ -1,0 +1,32 @@
+.banner {
+  background-size: cover;
+  background-position: center center;
+  padding: 150px 0;
+  height: auto;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.banner h2 {
+  font-size: 75px;
+  font-weight: 200;
+  margin: 0.4em 0;
+  line-height: 2.2;
+  margin-left: 20px;
+  text-shadow: 2px 1px;
+
+}
+
+
+#catch {
+  color: #FFB6D5;
+}
+
+.signup-control {
+  position: relative;
+}
+
+.signup-control .btn {
+  position: absolute;
+  border-radius: 20px;
+}
