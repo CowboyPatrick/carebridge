@@ -1,2 +1,16 @@
 <!-- show.html.erb THIS IS FOR THE CAREGIVER TO BE ABLE TO SEE THE SENIORS BUTTONS -->
-<h1>FUCK YOU YOSHIKI</h1>
+<div class="container py-4">
+  <% current_user.seniors.each do |senior|  %>
+    <%= render 'shared/senior-card', senior:senior %>
+  <% end %>
+</div>
+<div class="senior-show">
+  <div class="senior-notifications" style="text-align: center">
+    <h1>Notifications</h1>
+    <!-- render table with collection of alerts -->
+  </div>
+  <div class="senior-buttons">
+    <h1>UI</h1>
+    <!-- render  -->
+  </div>
+</div>
