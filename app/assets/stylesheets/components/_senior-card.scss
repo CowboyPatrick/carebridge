@@ -1,0 +1,49 @@
+.card-senior {
+  text-align: center;
+  background: #F6D7DC;
+  width: 260px;
+  border-radius: 12px;
+  border: 2px solid yellow;
+  padding: 10px;
+  margin: auto;
+  a {
+    text-decoration: none;
+    text-shadow: 2px 1px white;
+      color: black;
+  }
+}
+
+.card-senior img {
+  height: 160px;
+  width: 160px;
+  background-image: cover;
+  object-fit: cover;
+  padding: 6px;
+  background: #FDDBB6;
+}
+
+.container-seniors {
+  display: grid;
+  align-items: center;
+  margin: 0 50px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card-senior {
+  position: relative;
+  .card-senior-link {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+#notification-badge {
+  position: absolute;
+  top: -18px;
+  right: -21px;
+  font-size: 32px;
+}
