@@ -5,13 +5,9 @@
 </div>
 <!-- TODO: Make sure this is only showing the correct geezers -->
 <div class="container-seniors">
-  <% 3.times do %>
-    <% current_user.seniors.each do |senior|  %>
-      <!-- <%#= link_to senior.first_name, new_user_button_path(senior)  %> -->
-      <%= render 'shared/senior-card', senior:senior %>
-    <% end %>
+  <% current_user.seniors.each do |senior|  %>
+    <!-- <%#= link_to senior.first_name, new_user_button_path(senior)  %> -->
+    <%= render 'shared/senior-card', senior:senior %>
   <% end %>
 </div>
-
 <%= link_to "Add Senior", new_user_path  %>
-
