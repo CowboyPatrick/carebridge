@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @orders = policy_scope(Order)
+    @orders = policy_scope(Order).order(created_at: :desc)
   end
 
   def create
@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to orders_path
     else
-      render 'buttons/show.html.erb'
+      render :show
     end
     authorize @order
   end
