@@ -37,12 +37,14 @@ puts "Making user/geezer Seeds"
   tmp_user = User.create!(first_name: TEAM[i][0],
                           last_name:[i][1],
                           email:"#{TEAM[i][0]}@carebridge.us",
-                          password: '123123')
+                          password: '123123',
+                          username: TEAM[i][0])
 
   tmp_geezer = User.create!(first_name: GEEZERS[i][0],
                             last_name:[i][1],
                             email:"#{GEEZERS[i][0]}@carebridge.us",
                             password: '123123',
+                            username: GEEZERS[i][0],
                             caregiver_id: tmp_user.id)
   Provider.all.each do |provider|
     Button.create!(user: tmp_geezer,
