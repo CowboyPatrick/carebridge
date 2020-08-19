@@ -1,1 +1,31 @@
 <!-- new.html.erb FOR USER VIEW TO CREATE A NEW ACCOUNT FOR AN OLDER PERSON -->
+<div class="col-md-6 offset-md-3" style="text-align: left">
+  <%= simple_form_for @user, url: seniors_path do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.input :first_name, placeholder: 'Douglas',
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first-name" } %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.input :last_name, placeholder: 'Berkley',
+                required: true,
+                input_html: { autocomplete: "last-name" } %>
+        </div>
+      </div>
+      <%= f.input :username, placeholder: 'Doug',
+                required: true,
+                input_html: { autocomplete: "username" }%>
+      <%= f.input :password,
+                required: true, placeholder: '123123',
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    </div>
+    <div class="form-actions w-100">
+      <%= f.button :submit, "Sign up", class: "btn-outline-success w-100" %>
+    </div>
+  <% end %>
+</div>
