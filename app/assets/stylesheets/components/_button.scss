@@ -1,0 +1,16 @@
+.btn-pink {
+  color:white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  background:#FFB2DA;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+
+}
+
+.btn-pink:hover {
+  opacity: 1;
+}
