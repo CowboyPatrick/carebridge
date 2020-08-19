@@ -1,7 +1,17 @@
 <!-- dashboard.html.erb THIS IS OUR DASHBOARD -->
-<h1>PAINT ME LIKE ONE OF YOUR FRENCH GIRLS YOSHIKI</h1>
-<% current_user.seniors.each do |senior|  %>
-  <%= link_to senior.first_name, new_user_button_path(senior)  %>
-  <%= link_to 'Dashboard', user_path(senior) %>
-<% end %>
-<%= link_to 'Add a Senior', new_user_path  %>
+<!-- <h1>PAINT ME LIKE ONE OF YOUR FRENCH GIRLS YOSHIKI</h1> -->
+
+
+<div class="container my-5"  style="text-align: center">
+  <h1>Your geezers</h1>
+</div>
+<!-- TODO: Make sure this is only showing the correct geezers -->
+<div class="container-seniors">
+  <% 3.times do %>
+    <% current_user.seniors.each do |senior|  %>
+      <!-- <%#= link_to senior.first_name, new_user_button_path(senior)  %> -->
+      <%= render 'shared/senior-card', senior:senior %>
+    <% end %>
+  <% end %>
+</div>
+
