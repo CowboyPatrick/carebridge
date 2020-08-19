@@ -26,15 +26,13 @@ require("channels")
 import "bootstrap";
 
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initButtonSelector } from '../components/button_selector';
 
 document.addEventListener('turbolinks:load', () => {
-  $(document).ready(function(){
-    $(".category-choice").click(function(){
-      $(this).toggleClass("active");
-    });
-  });
+  initButtonSelector();
   // Call your functions here, e.g:
   // initSelect2();
 });
