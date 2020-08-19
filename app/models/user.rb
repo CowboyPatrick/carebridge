@@ -13,7 +13,11 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: 6}
 
   def caregiver?
-    caregiver_id.nil?
+    caregiver.nil?
+  end
+
+  def senior?
+    caregiver
   end
 
   def has_seniors?
