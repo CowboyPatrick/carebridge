@@ -2,5 +2,5 @@
 <h1>PAINT ME LIKE ONE OF YOUR FRENCH GIRLS YOSHIKI</h1>
 <% current_user.seniors.each do |senior|  %>
   <%= link_to senior.first_name, new_user_button_path(senior)  %>
-  <%= link_to 'Dashboard', buttons_path %>
+  <%= link_to 'Dashboard', user_path(senior) %>
 <% end %>
