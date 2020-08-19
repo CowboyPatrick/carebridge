@@ -1,9 +1,7 @@
 <!-- dashboard.html.erb THIS IS OUR DASHBOARD -->
 <!-- <h1>PAINT ME LIKE ONE OF YOUR FRENCH GIRLS YOSHIKI</h1> -->
-
-
 <div class="container my-5"  style="text-align: center">
-  <h1>Your geezers</h1>
+  <h1>Hello <%="#{current_user.first_name}"%>.  Here are your geezers</h1>
 </div>
 <!-- TODO: Make sure this is only showing the correct geezers -->
 <div class="container-seniors">
@@ -14,4 +12,4 @@
     <% end %>
   <% end %>
 </div>
-
+<%= link_to "Add Senior", new_user_path  %>
