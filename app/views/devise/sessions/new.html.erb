@@ -1,10 +1,10 @@
 <h2>Log in</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
-    <%= f.input :login,
+    <%= f.input :username,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email or username" } %>
+                input_html: { autocomplete: "username" } %>
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
