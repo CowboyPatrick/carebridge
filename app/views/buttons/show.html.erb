@@ -1,20 +1,22 @@
-<div class="form-order">
-  <h1><%= @button.name %></h1>
-  <%= simple_form_for(@order) do |f| %>
-    <div class="form-group">
-      <label class="control-label check_boxes"></label>
-      <div class="category-choices">
-        <% @button.provider_actions.sample(6).each_with_index do |provider_action, index| %>
-          <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
-          <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
-            <%= provider_action.name %>
-          </label>
-        <% end %>
+<div class="container">
+  <div class="form-order">
+    <h1><%= @button.name %></h1>
+    <%= simple_form_for(@order) do |f| %>
+      <div class="form-group">
+        <label class="control-label check_boxes"></label>
+        <div class="category-choices">
+          <% @button.provider_actions.sample(6).each_with_index do |provider_action, index| %>
+            <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
+            <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
+              <%= provider_action.name %>
+            </label>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <%= f.submit class:'create-btn btn-primary' %>
-  <% end %>
-  <%=link_to buttons_path, class:'menu-btn btn-primary' do %>
-    Return
-  <% end %>
+      <%= f.submit class:'create-btn btn-primary' %>
+    <% end %>
+    <%=link_to buttons_path, class:'menu-btn btn-primary' do %>
+      Return
+    <% end %>
+  </div>
 </div>
