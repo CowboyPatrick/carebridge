@@ -1,9 +1,8 @@
 .card-senior {
   text-align: center;
-  background: #F6D7DC;
-  width: 260px;
+  background: transparent;
+  width: auto;
   border-radius: 12px;
-  border: 2px solid yellow;
   padding: 10px;
   margin: auto;
   a {
@@ -43,7 +42,7 @@
 
 #notification-badge {
   position: absolute;
-  top: -18px;
-  right: -21px;
+  top: -6px;
+  right: 4px;
   font-size: 32px;
 }
