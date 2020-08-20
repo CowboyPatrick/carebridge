@@ -5,12 +5,12 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    authorize @order
     if @order.save
       redirect_to orders_path
     else
       render :show
     end
-    authorize @order
   end
 
   def order_params
