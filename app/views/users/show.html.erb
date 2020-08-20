@@ -3,12 +3,25 @@
   <%= render 'shared/senior-card', senior: @senior %>
 </div>
 <div class="senior-show">
-  <div class="senior-notifications" style="text-align: center">
-    <h1>Notifications</h1>
-    <!-- render table with collection of alerts -->
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-dashboard-tab" data-toggle="pill" href="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="false">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-requests-tab" data-toggle="pill" href="#pills-requests" role="tab" aria-controls="pills-requests" aria-selected="true">Requests</a>
+    </li>
+  </ul>
+</div>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
+    <!-- render senior orders here -->
   </div>
-  <div class="senior-buttons">
-    <h1>UI</h1>
-    <!-- render  -->
+  <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+    <ol  id="items">
+      <% @senior.buttons.each do |button|%>
+        <li><%= button.name %></li>
+      <% end %>
+    </ol>
+    <%= link_to 'Add Button', new_user_button_path(@senior), class: "btn btn-primary"%>
   </div>
 </div>

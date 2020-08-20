@@ -23,7 +23,7 @@ class ButtonsController < ApplicationController
     @button.user = @senior
     authorize @button
     if @button.save
-      redirect_to '/dashboard'
+      redirect_to @senior
     else
       render :new
     end

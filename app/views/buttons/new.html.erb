@@ -3,6 +3,7 @@
   <%= simple_form_for [ @senior, @button ] do |f| %>
     <%= f.input :name %>
     <%= f.association :provider %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
   <% end %>
 </div>
