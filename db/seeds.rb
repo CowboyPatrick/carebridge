@@ -20,6 +20,7 @@ Order.delete_all
 ProviderAction.delete_all
 User.delete_all
 Provider.delete_all
+Photo.delete_all
 
 
 
