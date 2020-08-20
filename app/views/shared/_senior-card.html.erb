@@ -1,7 +1,7 @@
 <div class="card-senior">
   <%= link_to "", user_path(senior), class: "card-senior-link" %>
   <div class="card-senior-infos">
-    <img src="https://www.meme-arsenal.com/memes/e58db01cbe029d1732074b2e642bdc0e.jpg" class="card-senior-user avatar-bordered" />
+    <%= cl_image_tag (senior.photo.attached? ? senior.photo.key : "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_600,w_600/viqfqp0tfkmcwmj7cfwe.jpg" ), alt: "alttext" %>
     <h2><%= senior.first_name %></h2>
   </div>
 </div>

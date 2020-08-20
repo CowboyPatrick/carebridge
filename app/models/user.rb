@@ -11,6 +11,8 @@ class User < ApplicationRecord
   belongs_to :caregiver, class_name: 'User', foreign_key: :caregiver_id, optional: true
   validates :username, presence: true
   validates :password, presence: true, length: {minimum: 6}
+  has_one_attached :photo
+  validates :photo, presence: true
 
   def caregiver?
     caregiver.nil?

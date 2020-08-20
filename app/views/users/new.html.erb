@@ -23,9 +23,10 @@
                 required: true, placeholder: '123123',
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+      <%= f.input :photo, as: :file, required: true %>
     </div>
     <div class="form-actions w-100">
-      <%= f.button :submit, "Sign up", class: "btn-outline-success w-100" %>
+      <%= f.button :submit, "Sign up", class: "btn-primary w-100" %>
     </div>
   <% end %>
 </div>
