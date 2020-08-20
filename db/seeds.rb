@@ -31,6 +31,7 @@ SHOPPING.each do |provider|
   Provider.create!(name: provider,
                    tag_list: "Shopping" )
 end
+
 puts "Made some providers!"
 
 puts "Making user/geezer Seeds"
@@ -63,6 +64,16 @@ puts "Making user/geezer Seeds"
   end
 end
 
+puts "Adding voice chat button"
+ft = Provider.create!(name: "FaceTime",
+                      tag_list: "communication" )
+
+geezers = User.where.not(caregiver: nil)
+geezers.each do |geezer|
+  ProviderAction.create!(name: "Call #{geezer.caregiver.first_name}",
+                         provider: ft,
+                         user: geezer )
+end
 
 
 puts 'Making some shit for geezer to push, provideractions!'

@@ -1,16 +1,27 @@
-.btn-pink {
+.btn-return {
   color:white;
   border: 1px solid white;
-  padding: 8px 24px;
-  border-radius: 50px;
+  padding: 20px 65px;
+  border-radius: 5px;
   font-weight: lighter;
   opacity: 1;
+  cursor:pointer;
   transition: opacity 0.3s ease;
-  background:#FFB2DA;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background:#0DBED1;
+  box-shadow: 3px 4px 0px 0px  rgba(0,0,0,0.2);
 
 }
 
-.btn-pink:hover {
+.btn-return:hover {
   opacity: 1;
 }
+
+.btn-return:active{
+  position:relative;
+  top:1px;
+}
+
+
+
+
+

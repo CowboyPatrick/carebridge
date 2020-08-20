@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
     authorize @order
     if @order.save
       LinebotJob.perform_now(@order) #TODO: CHANGE TO LATER AFTER ADDING SIDEKICK
@@ -13,7 +12,6 @@ class OrdersController < ApplicationController
     else
       render :show
     end
-
   end
 
   def order_params

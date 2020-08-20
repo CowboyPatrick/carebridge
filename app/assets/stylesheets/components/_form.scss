@@ -1,6 +1,6 @@
 
 .form-order {
-  background: white;
+ background-color: white;
   margin-top: 20px;
   padding: 100px;
 
@@ -15,26 +15,25 @@
   }
   .create-btn {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     font-weight: bold;
     border-radius: 5px;
+    box-shadow: 3px 4px 0px 0px  rgba(0,0,0,0.2);
   }
-  .menu-btn{
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 5px;
-    background: #BCEEE9;
-    margin-top: 10px;
-    justify-content: center;
+
+}
+
+.menu-btn{
+    position: absolute;
+    top: 110px;
+    left: 76%;
+    bottom: 0;
 
   }
-}
 
 // Checkboxes design
 .category-choices {
-  display: flex;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -45,13 +44,14 @@
   padding: 80px;
   border-radius: 50%;
   opacity: .4;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  // margin-bottom: 10px;
+  // margin-top: 10px;
   text-align: center;
   width: 200px;
   height: 200px;
   border: 3px solid rgba(230px, 230px, 30px, 0.4);
   box-shadow: 0 0 8px #ACB8E8;
+  margin: 10px auto;
 
   &.active {
   background: #AEBEED;
