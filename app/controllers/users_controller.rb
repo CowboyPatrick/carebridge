@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     authorize current_user
   end
 
+  def line
+    binding.pry
+  end
+
   private
 
   def user_params

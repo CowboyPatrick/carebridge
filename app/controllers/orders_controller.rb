@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     authorize @order
     if @order.save
+      LinebotJob.perform_now(@order) #TODO: CHANGE TO LATER AFTER ADDING SIDEKICK
       redirect_to orders_path
     else
       render :show
