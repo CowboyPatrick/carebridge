@@ -5,10 +5,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    raise
+
     authorize @order
     if @order.save
-      lineBotJob.perform_now() #TODO: CHANGE TO LATER AFTER ADDING SIDEKICK
+      LinebotJob.perform_now(@order) #TODO: CHANGE TO LATER AFTER ADDING SIDEKICK
       redirect_to orders_path
     else
       render :show
