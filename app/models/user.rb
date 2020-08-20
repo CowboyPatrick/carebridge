@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   has_many :buttons
   has_many :provider_actions
+  has_many :order_items, through: :provider_actions
+  has_many :orders, through: :order_items
   has_many :seniors, class_name: "User", foreign_key: :caregiver_id
   belongs_to :caregiver, class_name: 'User', foreign_key: :caregiver_id, optional: true
   validates :username, presence: true
