@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label class="control-label check_boxes"></label>
+  <div class="category-choices">
+    <% @button.provider_actions.where(user: current_user).sample(6).each_with_index do |provider_action, index| %>
+      <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
+      <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
+        <a href="facetime:mickeyogawa@hotmail.co.jp" style = "color:black"> <%= provider_action.name %> </a>
+      </label>
+    <% end %>

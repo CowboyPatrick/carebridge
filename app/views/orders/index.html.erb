@@ -1,7 +1,10 @@
 <div class="container pt-5">
   <h1>Orders</h1>
-  <%@orders.each do |order| %>
-    <div class="container p-5">
+  <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
+      Return
+    <% end %></div>
+  <div class="container p-5">
+    <%@orders.each do |order| %>
       <table class="table table-striped table-primary table-hover">
         <thead>
           <tr>
@@ -13,9 +16,9 @@
         <% order.provider_actions.each do |provider_action|%>
           <tr>
             <td> <%= provider_action.name%></td>
-          <%end %>
-        </tr>
+          </tr>
+        <%end %>
       </table>
-    </div>
-  <%end %>
+    <%end %>
+  </div>
 </div>
