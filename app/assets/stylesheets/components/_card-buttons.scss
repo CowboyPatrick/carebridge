@@ -26,6 +26,12 @@
   background-image: cover;
   object-fit: cover;
 }
+.grid-item img:active{
+  position:relative;
+  top:3px;
+}
+
+
 
 .grid-item-group {
   list-style-type: none;
