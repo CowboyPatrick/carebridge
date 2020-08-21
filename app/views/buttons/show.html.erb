@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" style="height: 100vh">
+  <h1><%= @button.name %></h1>
+  <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
+      Return
+    <% end %>
+  </div>
   <div class="form-order">
-    <h1><%= @button.name %></h1>
-    <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
-        Return
-      <% end %>
-    </div>
     <% if @button.provider.tag_list.include?("Shopping") %>
       <%= simple_form_for(@order) do |f| %>
         <div class="form-group">
@@ -19,7 +19,7 @@
             <% end %>
           </div>
         </div>
-        <%= f.submit class: 'create-btn btn-primary', disabled: true %>
+        <%= f.button :submit,'Order Now', class: 'create-btn btn-primary', disabled: true %>
       <% end %>
     <% elsif @button.provider.name == "FaceTime"  %>
       <%= render 'provider_actions/facetime', button: @button %>

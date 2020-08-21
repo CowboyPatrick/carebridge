@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   def show
     @senior = User.find(params[:id])
-    @orders = Order.where
     authorize current_user
   end
 

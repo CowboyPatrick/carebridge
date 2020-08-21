@@ -1,32 +1,35 @@
 <!-- new.html.erb FOR USER VIEW TO CREATE A NEW ACCOUNT FOR AN OLDER PERSON -->
+<div class="container py-5" style="text-align: center">
+  <h1>Add a senior 👴🏽 👵🏼</h1>
+</div>
 <div class="col-md-6 offset-md-3" style="text-align: left">
   <%= simple_form_for @user, url: seniors_path do |f| %>
     <%= f.error_notification %>
-    <div class="form-inputs">
+    <div class="form-inputs py-1">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <%= f.input :first_name, placeholder: 'Douglas',
+          <%= f.input :first_name,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "first-name" } %>
         </div>
         <div class="form-group col-md-6">
-          <%= f.input :last_name, placeholder: 'Berkley',
+          <%= f.input :last_name,
                 required: true,
                 input_html: { autocomplete: "last-name" } %>
         </div>
       </div>
-      <%= f.input :username, placeholder: 'Doug',
+      <%= f.input :username,
                 required: true,
                 input_html: { autocomplete: "username" }%>
       <%= f.input :password,
-                required: true, placeholder: '123123',
+                required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
       <%= f.input :photo, as: :file, required: true %>
     </div>
-    <div class="form-actions w-100">
-      <%= f.button :submit, "Sign up", class: "btn-primary w-100" %>
+    <div class="form-actions w-100 pt-3">
+      <%= f.button :submit, "Add Senior", class: "btn-primary w-100" %>
     </div>
   <% end %>
 </div>
