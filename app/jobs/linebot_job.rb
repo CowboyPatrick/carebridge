@@ -8,8 +8,7 @@ class LinebotJob < ApplicationJob
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
       config.channel_token = ENV["LINE_ACCESS_TOKEN"]
     }
-    order_message = "Doug ordered:\n" #TODO: ADD the actual seniors name
-
+    order_message = "Hello, #{order.user.caregiver.first_name.capitalize}. #{order.user.first_name.capitalize} ordered:\n"
     order.provider_actions.each do |item|
       order_message += item.name.capitalize  + "\n"
     end

@@ -38,13 +38,13 @@ puts "Making user/geezer Seeds"
 
 3.times do |i|
   tmp_user = User.create!(first_name: TEAM[i][0],
-                          last_name:[i][1],
+                          last_name: TEAM[i][1],
                           email:"#{TEAM[i][0]}@carebridge.us",
                           password: '123123',
                           username: TEAM[i][0])
 
   tmp_geezer = User.create!(first_name: GEEZERS[i][0],
-                            last_name:[i][1],
+                            last_name:GEEZERS[i][1],
                             email:"#{GEEZERS[i][0]}@carebridge.us",
                             password: '123123',
                             username: GEEZERS[i][0],
