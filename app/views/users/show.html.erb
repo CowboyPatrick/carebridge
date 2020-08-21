@@ -2,6 +2,10 @@
 <div class="container py-4">
   <%= render 'shared/senior-card', senior: @senior %>
 </div>
+<div class= "menu-btn"> <%=link_to dashboard_path, class:'btn btn-return' do %>
+    Return
+  <% end %>
+</div>
 <div class="senior-show">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
@@ -18,11 +22,14 @@
     <%= render 'orders/index', orders: @senior.orders %>
   </div>
   <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+    <div class="container py-3" style="text-align: center">
+      <h3><%= @senior.first_name %>'s Action Buttons</h3>
+    </div>
     <ol  id="items">
       <% @senior.buttons.each do |button|%>
         <li><%= button.name %></li>
       <% end %>
     </ol>
-    <%= link_to 'Add Button', new_user_button_path(@senior), class: "btn btn-primary"%>
+    <%= link_to 'Add Another', new_user_button_path(@senior), class: "btn btn-primary"%>
   </div>
 </div>

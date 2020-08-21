@@ -1,1 +1,7 @@
-<%= render 'index', orders: @orders %>
+<div class="container pt-5">
+  <h1>Orders</h1>
+  <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
+      Return
+    <% end %></div>
+  <%= render 'index', orders: @orders %>
+</div>
