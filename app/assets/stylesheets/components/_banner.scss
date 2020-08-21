@@ -1,49 +1,44 @@
-.banner {
-  background-size: cover;
-  background-position: center center;
-  padding: 230px 0;
-  height: auto;
-  padding-left: 20px;
+.banner-container {
+  display: flex;
+  background: #8ACFF0;
+  justify-content: space-around;
+  align-items: center;
+  height: calc(100vh - 70px);
+}
+
+.banner-content {
+  justify-content: center;
   text-align: left;
 }
 
-.banner h2 {
-  font-size: 75px;
-  font-weight: 200;
-  margin: 0.4em 0;
-
-  margin-left: 20px;
-  text-shadow: 2px 1px #F29CC6;
-
-
-}
-.banner p{
-  position:absolute;
-  left:  80px;
-  top: 450px;
-
-
+.banner-title h1 {
+  font-size: 64px;
+  color: white;
+  line-height: 1.4em;
 }
 
 
-#catch {
-  color: #FFB6D5;
+.banner-image img {
+  height: 540px;
+  width: 540px;
+  border-radius: 50%;
+  background-image: cover;
+  object-fit: cover;
 }
+
 
 .signup-control {
-  position: relative;
+  padding-top: 12px;
+
 }
 
-.signup-control .btn {
-  position: absolute;
+// .signup-control .btn {
+//   position: absolute;
 
-  border-radius: 20px;
-}
+//   border-radius: 20px;
+// }
 
 @media (max-width: 700px){
 
-#catch {
-  font-size: 50px;
-}
 
 }
