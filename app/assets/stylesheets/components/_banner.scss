@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center center;
-  padding: 150px 0;
+  padding: 230px 0;
   height: auto;
   padding-left: 20px;
   text-align: left;
@@ -11,9 +11,17 @@
   font-size: 75px;
   font-weight: 200;
   margin: 0.4em 0;
-  line-height: 2.2;
+
   margin-left: 20px;
-  text-shadow: 2px 1px;
+  text-shadow: 2px 1px #F29CC6;
+
+
+}
+.banner p{
+  position:absolute;
+  left:  80px;
+  top: 450px;
+
 
 }
 
@@ -28,6 +36,7 @@
 
 .signup-control .btn {
   position: absolute;
+
   border-radius: 20px;
 }
 

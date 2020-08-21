@@ -23,5 +23,28 @@
 
 
 
+.btn-pink {
+  color:white;
+  border: 1px solid white;
+  padding: 10px 45px;
+  border-radius: 50%;
+  font-weight: lighter;
+  opacity: 1;
+  cursor:pointer;
+  transition: opacity 0.3s ease;
+  background:#FFACBF;
+  box-shadow: 3px 4px 0px 0px #FF8AA6;
+
+}
+
+.btn-pink:hover {
+  opacity: 1;
+}
+
+.btn-pink:active{
+  position:relative;
+  top:3px;
+}
+
 
 
