@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :password, presence: true, length: {minimum: 6}
   has_one_attached :photo
-  validates :photo, presence: true
+  # validates :photo, presence: true
 
   def caregiver?
     caregiver.nil?
