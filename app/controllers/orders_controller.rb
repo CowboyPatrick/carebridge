@@ -4,8 +4,10 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = Order.new(order_params)
     authorize @order
+    raise
     if @order.save
       LinebotJob.perform_now(@order) #TODO: CHANGE TO LATER AFTER ADDING SIDEKICK
       redirect_to orders_path

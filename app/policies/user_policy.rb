@@ -20,4 +20,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def get_id?
+    true
+  end
 end
