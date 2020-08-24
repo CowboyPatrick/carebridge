@@ -26,7 +26,7 @@
       <% end %>
     <% elsif @button.provider.name == "FaceTime"  %>
       <%= render 'provider_actions/facetime', button: @button %>
-    <% elsif @button.provider.name == "Emergency"  %>
+    <% elsif @button.provider.name == "Emergency" %>
       <%= render 'provider_actions/emergencybtn', button: @button %>
     <% end %>
   </div>

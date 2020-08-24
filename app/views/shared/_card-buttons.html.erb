@@ -1,7 +1,7 @@
 <div class="grid-container">
   <% @buttons.each do |button| %>
     <ol class="grid-item-group">
-      <%= link_to button_path(button.id) do %>
+      <%= link_to button_path(button.id), id: "#{button.name.underscore}-button" do %>
         <li class="grid-item">
           <%= cl_image_tag (button.photo.attached? ? button.photo.key : "https://www.clker.com/cliparts/f/q/Q/u/f/t/push-button-glossy-red-hi.png" ), alt: "alttext" %>
           <h1> <%= button.name %> </h1>
