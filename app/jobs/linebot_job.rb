@@ -19,7 +19,8 @@ class LinebotJob < ApplicationJob
       type: 'text',
       text: order_message
     }
-    @client.push_message("Ud793bafaed4535fe335e3b21ac1735c5", message)
+
+    @client.push_message(order.user.caregiver.line_id, message)
   end
 
 end

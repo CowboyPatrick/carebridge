@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :buttons
   has_many :provider_actions
   has_many :order_items, through: :provider_actions
-  has_many :orders, through: :order_items
+  has_many :orders
   has_many :seniors, class_name: "User", foreign_key: :caregiver_id
   belongs_to :caregiver, class_name: 'User', foreign_key: :caregiver_id, optional: true
   validates :username, presence: true
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, on: :create
   has_one_attached :photo
   # validates :photo, presence: true
 
