@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   end
   get '/dashboard', to: 'users#dashboard'
   post '/seniors', to: 'users#create'
-  post '/callback', to: 'linebots#get_id'
-  post '/emergency', to: 'api/v1/linebots#emergency'
+  post '/callback', to: 'api/v1/linebots#get_id'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
