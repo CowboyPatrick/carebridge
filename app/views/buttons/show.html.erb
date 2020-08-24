@@ -8,25 +8,14 @@
   </div>
   <div class="form-order">
     <% if @button.provider.tag_list.include?("Shopping") %>
-      <%= simple_form_for(@order) do |f| %>
-        <%= hidden_field_tag :button_id, @button.id %>
-        <div class="form-group">
-          <label class="control-label check_boxes"></label>
-          <!-- <input type="hidden" name="order[hidden]"> -->
-          <div class="category-choices">
-            <% @button.provider_actions.where(user: current_user).sample(6).each_with_index do |provider_action, index| %>
-              <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
-              <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
-                <%= provider_action.name %>
-              </label>
-            <% end %>
-          </div>
-        </div>
-        <%= f.button :submit,'Order Now', class: 'create-btn btn-primary', disabled: true %>
-      <% end %>
+      <%= render 'provider_actions/shopping', button: @button %>
     <% elsif @button.provider.name == "FaceTime"  %>
       <%= render 'provider_actions/facetime', button: @button %>
     <% elsif @button.provider.name == "Emergency" %>
+      <%= render 'provider_actions/emergencybtn', button: @button %>
+    <% elsif @button.provider.name == "Taxi"  %>
+      <%= render 'provider_actions/facetime', button: @button %>
+    <% elsif @button.provider.name == "Food delivery" %>
       <%= render 'provider_actions/emergencybtn', button: @button %>
     <% end %>
   </div>

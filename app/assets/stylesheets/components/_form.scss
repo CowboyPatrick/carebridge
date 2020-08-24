@@ -10,23 +10,26 @@
     font-weight: bold;
     font-size: 25px;
     color: black;
-    margin-bottom: 10px;
-    margin-top: 0px;
+
+
+
   }
   .create-btn {
     width: 100%;
     padding: 20px;
     font-weight: bold;
+    font-size: 30px;
     border-radius: 5px;
-    box-shadow: 3px 4px 0px 0px #FFBAD2;
+    box-shadow: 3px 4px 0px 0px #DE1665;
     color:white;
   }
 
 }
 
 .menu-btn{
+
     position: absolute;
-    top: 110px;
+    top: 60px;
     left: 76%;
     bottom: 0;
 
@@ -45,16 +48,17 @@
   display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 30px;
     color:black;
+    background:#B8CCF5;
     /* padding: 80px; */
     border-radius: 50%;
-    opacity: .4;
+    opacity: .7;
     /* text-align: center; */
     width: 200px;
     height: 200px;
-    border: 3px solid rgba(230px, 230px, 30px, 0.4);
-    box-shadow: 0 0 8px #FFBAD2;
+    border: 3px solid rgba(100px, 129px, 172px, 0.6);
+    box-shadow: 0 0 8px #807BFF;
     margin: 10px auto;
 
 
@@ -62,6 +66,8 @@
   background: #FFBAD2;
   color: black;
   opacity: 1;
+  box-shadow: 0 0 8px #F26FB0;
+  border: 3px solid rgba(100px, 129px, 172px, 0.1);
   position:relative;
   top:5px;
   }

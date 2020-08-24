@@ -1,14 +1,16 @@
 <div class="container p-5">
   <%orders.each do |order| %>
-    <table class="table table-striped table-primary table-hover">
+    <table class="table table-striped table-warning table-hover">
       <thead>
         <tr>
           <th scope="col">Item:</th>
+          <th scope="col">Time:</th>
         </tr>
       </thead>
       <% order.provider_actions.each do |provider_action|%>
         <tr>
           <td> <%= provider_action.name%></td>
+          <td><%= order.created_at.in_time_zone("Asia/Tokyo").strftime("%b %e, %l:%M %p")  %></td>
         </tr>
       <%end %>
     </table>
