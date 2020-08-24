@@ -36,6 +36,9 @@ class Api::V1::LinebotsController < Api::V1::BaseController
       end
     end
   end
+
+  def emergency
+  end
 end
 
 # I need to get the carebridge username from the text
