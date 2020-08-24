@@ -1,7 +1,7 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.joins(:users).where("users.id = ?", user.id).distinct
+      user.orders
     end
 
   end

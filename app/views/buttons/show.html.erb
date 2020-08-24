@@ -9,6 +9,7 @@
   <div class="form-order">
     <% if @button.provider.tag_list.include?("Shopping") %>
       <%= simple_form_for(@order) do |f| %>
+        <%= hidden_field_tag :button_id, @button.id %>
         <div class="form-group">
           <label class="control-label check_boxes"></label>
           <!-- <input type="hidden" name="order[hidden]"> -->

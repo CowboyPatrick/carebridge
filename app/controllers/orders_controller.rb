@@ -6,13 +6,14 @@ class OrdersController < ApplicationController
   def create
 
     @order = Order.new(order_params)
+    @order.user = current_user
     authorize @order
-    raise
     if @order.save
       LinebotJob.perform_now(@order) #TODO: CHANGE TO LATER AFTER ADDING SIDEKICK
       redirect_to orders_path
     else
-      render :show
+      @button = Button.find(params[:button_id])
+      render 'buttons/show'
     end
   end
 
