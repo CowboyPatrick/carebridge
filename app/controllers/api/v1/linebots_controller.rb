@@ -22,7 +22,7 @@ class Api::V1::LinebotsController < Api::V1::BaseController
       # when receive a text message
       when Line::Bot::Event::MessageType::Text
         # search = event['message']['text']
-        @user = User.find_by(username: event['message']['text'])
+        @user = User.find_by(username: event['message']['text'].strip)
         authorize @user
         p @user
         fuck = event['source']['userId']
