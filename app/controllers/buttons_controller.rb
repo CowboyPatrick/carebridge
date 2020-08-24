@@ -9,6 +9,10 @@ class ButtonsController < ApplicationController
     authorize @button
     @order = Order.new
     @order.order_items.build
+    if params[:emergency]
+      coordinates = [params[:lat], params[:lon]]
+      LinebotEmergencyJob.perform_now(current_user, coordinates)
+    end
   end
 
   def new

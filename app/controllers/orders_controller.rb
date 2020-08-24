@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-
     @order = Order.new(order_params)
     @order.user = current_user
     authorize @order
