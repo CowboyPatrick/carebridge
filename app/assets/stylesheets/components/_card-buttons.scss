@@ -4,14 +4,15 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0px;
   margin: 0 auto;
-  // height: calc(100vh - 70px);
-  height: 100vh;
+  height: calc(100vh - 70px);
+  // height: 100vh;
 }
 
 .grid-item-group {
   // height: 400px;
+  padding: 0px;
   a {
     text-decoration: none;
   }

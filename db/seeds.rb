@@ -149,6 +149,7 @@ emergency = Provider.create!(name: "Emergency",
                              tag_list: "SOS" )
 
 
+
 file = URI.open("https://hackernoon.com/hn-images/1*3462gy-_U_FrHlMf0o-dow.png")
 videochat = Button.create!(user: grandpa,
                            provider: ft,

@@ -16,5 +16,4 @@ class LinebotEmergencyJob < ApplicationJob
     }
     @client.push_message(senior.caregiver.line_id, message)
   end
-
 end
