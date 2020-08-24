@@ -30,9 +30,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initButtonSelector } from '../components/button_selector';
+import { getPosition } from '../components/emergencyBtn';
 
 document.addEventListener('turbolinks:load', () => {
   initButtonSelector();
+  getPosition();
   // Call your functions here, e.g:
   // initSelect2();
 });
