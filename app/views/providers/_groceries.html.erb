@@ -1,3 +1,4 @@
+
 <h1>Groceries</h1>
 <%= form_tag(user_grocery_search_path(@senior), {:class => "form", method: :get}) do %>
   <%= text_field_tag (:query) %>
@@ -23,3 +24,4 @@
     <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
   <% end %>
 <% end %>
+

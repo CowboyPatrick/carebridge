@@ -19,29 +19,37 @@
       <%= render "providers/#{@provider.name.downcase}", form: f %>
     <% end %>
     <div class="d-flex">
-      <div class="container" id="inactive">
-        <h1>Inactive</h1>
-        <ul id="grocery-items-inactive">
-          <% @provider.provider_actions.where(user: @senior).each do |item| %>
-            <li>
-              <div class="card-grocery-item">
-                <%= item.name %>
-              </div>
-            </li>
-          <% end %>
-        </ul>
+      <div class="container" style="flex: 30%">
+        <%= simple_form_for [ @senior, @provider_action ] do |f| %>
+          <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
+          <%= render "providers/#{@provider.name.downcase}", form: f %>
+        <% end %>
       </div>
-      <div class="container" id="active">
-        <h1>Active</h1>
-        <ul id="grocery-items-active">
-        </ul>
+      <div class="d-flex" style="flex: 70%">
+        <div class="container" id="inactive">
+          <h1>Inactive</h1>
+          <ul id="grocery-items-inactive">
+            <% @provider.provider_actions.where(user: @senior).each do |item| %>
+              <li>
+                <div class="card-grocery-item">
+                  <%= item.name %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="container" id="active">
+          <h1>Active</h1>
+          <ul id="grocery-items-active">
+          </ul>
+        </div>
       </div>
-    </div>
-  <% else %>
-    <div class="container">
-      <%= simple_form_for [ @senior, @provider_action ] do |f| %>
-        <%= f.association :provider %>
-      <% end %>
-    </div>
-  <% end %>
+    <% else %>
+      <div class="container">
+        <%= simple_form_for [ @senior, @provider_action ] do |f| %>
+          <%= f.association :provider %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
