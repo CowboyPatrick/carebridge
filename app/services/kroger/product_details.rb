@@ -6,8 +6,8 @@ module Kroger
     end
 
     def initialize
-      @token =
-        end
+
+    end
 
     def execute
 
