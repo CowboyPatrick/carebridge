@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :buttons, only:[:index, :show]
   resources :providers, only:[:show] do
-    resources :provider_actions, only:[:create]
   end
   resources :orders, only:[:index, :create]
   resources :users, only:[:new, :create, :show] do
+    resources :provider_actions, only:[:new, :create]
     resources :buttons, only:[:new, :create]
   end
   get '/dashboard', to: 'users#dashboard'

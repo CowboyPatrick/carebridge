@@ -4,7 +4,8 @@ class ProviderActionPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def create?
-    true
+    record.user.caregiver == user
   end
 end
