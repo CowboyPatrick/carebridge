@@ -19,7 +19,7 @@
     </li>
   </ul>
 </div>
-<div class="tab-content" id="pills-tabContent">
+<div class="tab-content mb-3" id="pills-tabContent">
   <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
     <!-- render senior orders here -->
     <%= render 'orders/index', orders: @senior.orders %>
@@ -28,14 +28,25 @@
     <div class="container py-3" style="text-align: center">
       <h3><%= @senior.first_name %>'s Action Buttons</h3>
     </div>
-    <ol  id="items">
-      <% @senior.buttons.each do |button|%>
-        <li><%= button.name %></li>
-      <% end %>
-    </ol>
+    <div  id="items">
+      <div class="grid-container-2">
+        <% @senior.buttons.each do |button|%>
+          <div class="grid-item-group-2">
+            <%= link_to provider_path(button.provider), id: "#{button.name.underscore}-button" do %>
+              <li class="grid-item-2">
+                <div class="container">
+                  <%= cl_image_tag (button.photo.attached? ? button.photo.key : "https://www.clker.com/cliparts/f/q/Q/u/f/t/push-button-glossy-red-hi.png" ), alt: "alttext" %>
+                  <h1> <%= button.name %> </h1>
+                </div>
+              </li>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <%= link_to 'Add Another', new_user_button_path(@senior), class: "btn btn-primary"%>
   </div>
-  <div class="tab-pane fade show active" id="pills-line" role="tabpanel" aria-labelledby="pills-line-tab">
+  <div class="tab-pane fade show" id="pills-line" role="tabpanel" aria-labelledby="pills-line-tab">
     <div class="container d-flex">
       <%= image_tag "lineqr", alt: "LINE QR code" %>
       <h2>Hey Yoshiki where should I go?</h2>
