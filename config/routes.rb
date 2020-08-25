@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   resources :orders, only:[:index, :create]
   resources :users, only:[:new, :create, :show] do
     resources :provider_actions, only:[:new, :create]
+    get '/grocery_search', to: 'provider_actions#grocery_search', as: :grocery_search
     resources :buttons, only:[:new, :create]
   end
   get '/dashboard', to: 'users#dashboard'
   post '/seniors', to: 'users#create'
   post '/callback', to: 'api/v1/linebots#get_id'
+
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do

@@ -1,3 +1,6 @@
-<%= form.input :name %>
-<%= form.input :facetime_id %>
-<%= form.button :submit, "Add Contact", class: "btn btn-primary" %>
+<%= simple_form_for [ @senior, @provider_action ] do |f| %>
+  <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
+  <%= f.input :name %>
+  <%= f.input :facetime_id %>
+  <%= f.button :submit, "Add Contact", class: "btn btn-primary" %>
+<% end %>
