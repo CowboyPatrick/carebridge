@@ -1,5 +1,19 @@
 <% if @provider %>
   <div class="container">
+    <%= render "providers/#{@provider.name.downcase}" %>
+  </div>
+  <div class="d-flex">
+    <div class="container" id="inactive">
+      <h1>Inactive</h1>
+      <ul id="grocery-items-inactive">
+        <% @provider.provider_actions.where(user: @senior).each do |item| %>
+          <li>
+            <div class="card-grocery-item">
+              <%= item.name %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     <%= simple_form_for [ @senior, @provider_action ] do |f| %>
       <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
       <%= render "providers/#{@provider.name.downcase}", form: f %>
