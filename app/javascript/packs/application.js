@@ -37,19 +37,17 @@ import { getPosition } from '../components/emergencyBtn';
 document.addEventListener('turbolinks:load', () => {
   initButtonSelector();
   getPosition();
-  // Call your functions here, e.g:
-  // initSelect2();
-});
-
-document.addEventListener('turbolinks:load', () => {
   var el = document.getElementById('grocery-items-inactive');
   var el2 = document.getElementById('grocery-items-active');
-  var sortable = new Sortable(el, {
-    group: 'grocery-items',
-    animation: 100
-  });
+  if (el) {
+    var sortable = new Sortable(el, {
+      group: 'grocery-items',
+      animation: 100
+    });
+
    var sortable2 = new Sortable(el2, {
     group: 'grocery-items',
     animation: 100
   });
+  };
 });

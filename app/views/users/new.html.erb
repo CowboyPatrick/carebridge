@@ -1,6 +1,6 @@
 <!-- new.html.erb FOR USER VIEW TO CREATE A NEW ACCOUNT FOR AN OLDER PERSON -->
 <div class="container py-5" style="text-align: center">
-  <h1>Add a senior 👴🏽 👵🏼</h1>
+  <h1>Onboard your senior 👴🏽 👵🏼</h1>
 </div>
 <div class="col-md-6 offset-md-3" style="text-align: left">
   <%= simple_form_for @user, url: seniors_path do |f| %>
@@ -29,7 +29,7 @@
       <%= f.input :photo, as: :file, required: true %>
     </div>
     <div class="form-actions w-100 pt-3">
-      <%= f.button :submit, "Add Senior", class: "btn-primary w-100" %>
+      <%= f.button :submit, "submit", class: "btn-primary w-100" %>
     </div>
   <% end %>
 </div>
