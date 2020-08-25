@@ -3,5 +3,5 @@
   <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
       Return
     <% end %></div>
-  <%= render 'senior_order', orders: @orders %>
+  <%= render 'senior_order', order: @orders.first %>
 </div>

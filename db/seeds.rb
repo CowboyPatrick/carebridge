@@ -130,7 +130,7 @@ facetime = Provider.create!(name: "FaceTime",
 familyjoc = ["Mickey", "Vivian", "Jocelyn"]
 
 familyjoc.each do |person|
-  ProviderAction.create!(name: "Call\n#{person}",
+  ProviderAction.create!(name: "#{person}",
                          provider: facetime,
                          user: grandpa,
                          disabled: false)
