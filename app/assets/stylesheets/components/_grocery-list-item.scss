@@ -22,10 +22,34 @@
     }
   }
 
-
-
-#grocery-items-active {
-  list-style: none;
-  padding: 4px;
+#button-card {
+  background-color: white;
+  margin: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
+
+.card-button {
+  background-color: white;
+  margin: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  .button-card-link {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.card-info {
+  padding: auto;
+  margin: auto;
+}
