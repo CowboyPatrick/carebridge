@@ -6,6 +6,13 @@ class ProvidersController < ApplicationController
     case @provider.name.downcase!
     when 'amazon'
       render :groceries
+    when 'facetime'
+      render :facetime
+    when 'taxi'
+      render :taxi
+    when 'emergency'
+      render :emergency
+
       # when 'taxi'
       #   render 'shared/' # enterviewhere
       # when 'mealdelivery'

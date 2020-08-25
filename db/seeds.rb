@@ -106,38 +106,32 @@ grandpa.photo.attach(io: file, filename: 'grandpa.jpg', content_type: 'image/jpg
 puts "sweet, photo attached!"
 
 
-puts "Creating Amazon Shop"
-amazon = Provider.create!(name: SHOPPING.first,
-                          tag_list: "Shopping")
+puts "Creating groceries"
+groceries = Provider.create!(name: "groceries",
+                             tag_list: "Shopping")
 
 
 
-SHOPPINGLIST.each do |item|
-  ProviderAction.create!(quantity: 1,
-                         name: item,
-                         provider: amazon,
-                         disabled: false,
-                         user: grandpa )
 
-end
+
 
 file = URI.open("https://i.pinimg.com/originals/f6/db/eb/f6dbeb17951cb9d12c450eb26e42e484.jpg")
 shopping_btn = Button.create!(user: grandpa,
-                              provider: amazon,
+                              provider: groceries,
                               name: "Groceries" )
 shopping_btn.photo.attach(io: file, filename: 'amazon.jpg', content_type: 'image/jpg')
 
 #Creating Factime provider and buttons
 
 puts "Adding voice chat button"
-ft = Provider.create!(name: "FaceTime",
-                      tag_list: "communication" )
+facetime = Provider.create!(name: "FaceTime",
+                            tag_list: "communication" )
 
 familyjoc = ["Mickey", "Vivian", "Jocelyn"]
 
 familyjoc.each do |person|
   ProviderAction.create!(name: "Call\n#{person}",
-                         provider: ft,
+                         provider: facetime,
                          user: grandpa,
                          disabled: false)
 end
@@ -147,12 +141,18 @@ end
 puts "Adding emergency button"
 emergency = Provider.create!(name: "Emergency",
                              tag_list: "SOS" )
+puts "Adding taxi button"
+taxi = Provider.create!(name: "taxi",
+                        tag_list: "transportation" )
+puts "Adding food_delivery button"
+food_delivery = Provider.create!(name: "food_delivery",
+                                 tag_list: "delivery" )
 
 
 
 file = URI.open("https://hackernoon.com/hn-images/1*3462gy-_U_FrHlMf0o-dow.png")
 videochat = Button.create!(user: grandpa,
-                           provider: ft,
+                           provider: facetime,
                            name: "Video Chat")
 
 videochat.photo.attach(io: file, filename: 'vc.png', content_type: 'image/png')

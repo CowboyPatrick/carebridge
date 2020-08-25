@@ -2,10 +2,6 @@
 <div class="container py-4">
   <%= render 'shared/senior-card', senior: @senior %>
 </div>
-<div class= "menu-btn"> <%=link_to dashboard_path, class:'btn btn-return' do %>
-    Return
-  <% end %>
-</div>
 <div class="senior-show">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
@@ -32,7 +28,7 @@
       <div class="grid-container-2">
         <% @senior.buttons.each do |button|%>
           <div class="grid-item-group-2">
-            <%= link_to provider_path(button.provider), id: "#{button.name.underscore}-button" do %>
+            <%= link_to new_user_provider_action_path(@senior, provider: button.provider), id: "#{button.name.underscore}-button" do %>
               <li class="grid-item-2">
                 <div class="container">
                   <%= cl_image_tag (button.photo.attached? ? button.photo.key : "https://www.clker.com/cliparts/f/q/Q/u/f/t/push-button-glossy-red-hi.png" ), alt: "alttext" %>
