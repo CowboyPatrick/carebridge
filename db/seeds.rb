@@ -13,7 +13,7 @@ require 'open-uri'
 TEAM = [['patrick', 'campbell'],['yoshiki', 'bell'],['jocelyn', 'yuan']]
 GEEZERS = [['doug', 'berkley'], ['trouni', 'tiet'], ['yann','klein']]
 SHOPPING = ['Amazon', 'Rakuten', 'Ito Yokado']
-SHOPPINGLIST = ['Milk', 'Honey', 'Eggs', 'Tofu', 'Rice', 'Apples' ]
+SHOPPINGLIST = ['Milk', 'Honey', 'Eggs', 'Tofu', 'Rice', 'Apples']
 puts 'Destroying all Seeds..'
 
 Button.delete_all

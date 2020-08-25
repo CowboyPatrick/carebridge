@@ -1,10 +1,26 @@
 <h1>suh bih</h1>
 <div class="container">
-  <%= simple_form_for [@provider, @provider_action]  do |f| %>
-    <%= f.input :name %>
+  <%= simple_form_for([ @provider, @provider_action ], remote: true)  do |f| %>
+    <%= f.input :name, required: true %>
     <%= f.button :submit, "Add Grocery Item", class: "btn btn-primary" %>
   <% end %>
 </div>
-<% ProviderAction.all.each do |item| %>
-  <p><%= item.name unless item.name.include?("Call") %></p>
-<% end %>
+<div class="d-flex">
+  <div class="container" id="inactive">
+    <h1>Inactive</h1>
+    <ul id="grocery-items-inactive">
+      <% ProviderAction.all.each do |item| %>
+        <li>
+          <div class="card-grocery-item">
+            <%= item.name unless item.name.include?("Call") %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="container" id="active">
+    <h1>Active</h1>
+    <ul id="grocery-items-active">
+    </ul>
+  </div>
+</div>
