@@ -18,11 +18,11 @@
 <div class="tab-content mb-3" id="pills-tabContent">
   <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
     <!-- render senior orders here -->
-    <%= render 'orders/index', orders: @senior.orders %>
+    <%= render 'orders/index', orders: @senior.orders.order(created_at: :desc) %>
   </div>
   <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
     <div class="container py-3" style="text-align: center">
-      <h3><%= @senior.first_name %>'s Action Buttons</h3>
+      <h3><%= @senior.first_name.capitalize %>'s Action Buttons</h3>
     </div>
     <div  id="items">
       <div class="grid-container-2">
@@ -40,7 +40,7 @@
         <% end %>
       </div>
     </div>
-    <%= link_to 'Add Another', new_user_button_path(@senior), class: "btn btn-primary"%>
+    <%= link_to 'Add service', new_user_button_path(@senior), class: "btn btn-primary"%>
   </div>
   <div class="tab-pane fade show" id="pills-line" role="tabpanel" aria-labelledby="pills-line-tab">
     <div class="container d-flex">

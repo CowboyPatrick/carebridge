@@ -1,5 +1,5 @@
 <div class="container my-5"  style="text-align: center">
-  <h1>Hello <%="#{current_user.first_name}"%>. Choose a senior to care 💙</h1>
+  <h1>Hi <%="#{current_user.first_name.capitalize}"%>. Who would you like to take care of ? 💙</h1>
 </div>
 <!-- TODO: Make sure this is only showing the correct geezers -->
 <div class="container-seniors">
@@ -10,7 +10,6 @@
 </div>
 <div class="container my-5"  style="text-align: center">
   <span>
-    <p>or</p>
   </span>
-  <%= link_to "Add Senior", new_user_path, class: "btn btn-primary" %>
+  <%= link_to "Onboard another senior", new_user_path, class: "btn btn-primary" %>
 </div>

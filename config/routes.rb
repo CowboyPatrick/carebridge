@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :buttons, only:[:index, :show]
   resources :providers, only:[:show] do
   end
-  resources :orders, only:[:index, :create]
+  resources :orders, only:[:index, :show, :create]
   resources :users, only:[:new, :create, :show] do
     resources :provider_actions, only:[:new, :create]
     resources :buttons, only:[:new, :create]
