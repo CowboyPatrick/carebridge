@@ -37,6 +37,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'font-awesome-sass'
 gem 'line-bot-api'
 gem 'pundit'
+gem 'rest-client'
 gem 'simple_form'
 
 
