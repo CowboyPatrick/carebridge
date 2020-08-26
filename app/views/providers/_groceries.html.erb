@@ -18,6 +18,7 @@
               <div class="card-info">
                 <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
                 <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
+                <%= f.input :price, input_html: { value: product['items'][0]['price']['regular'].to_f }, as: :hidden %>
                 <%= f.simple_fields_for :additional_info do |p| %>
                   <%= p.input :photo_url, input_html: { value: photo_url }, as: :hidden %>
                 <% end %>
