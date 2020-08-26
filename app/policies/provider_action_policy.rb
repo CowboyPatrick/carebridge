@@ -8,4 +8,8 @@ class ProviderActionPolicy < ApplicationPolicy
   def create?
     record.user.caregiver == user
   end
+
+  def update?
+    true
+  end
 end

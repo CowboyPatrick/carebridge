@@ -5,10 +5,12 @@
     <!-- <input type="hidden" name="order[hidden]"> -->
     <div class="category-choices">
       <% @button.provider_actions.where(user: current_user).each_with_index do |provider_action, index| %>
-        <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
-        <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
-          <%= provider_action.name %>
-        </label>
+        <% if provider_action.enabled %>
+          <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
+          <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
+            <%= provider_action.name %>
+          </label>
+        <% end %>
       <% end %>
     </div>
   </div>
