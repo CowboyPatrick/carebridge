@@ -13,10 +13,14 @@
         <% @products['data'].each do |product| %>
           <%= simple_form_for [ @senior, @provider_action ] do |f| %>
             <div class="card-button">
-              <%= image_tag product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'], alt: "alttext" %>
+              <% photo_url = product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'] %>
+              <%= image_tag photo_url, alt: "alttext" %>
               <div class="card-info">
                 <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
                 <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
+                <%= f.simple_fields_for :additional_info do |p| %>
+                  <%= p.input :photo_url, input_html: { value: photo_url }, as: :hidden %>
+                <% end %>
                 <p><%= product['description']%></p>
               </div>
               <%= f.button :submit, "", class: "button-card-link" %>
