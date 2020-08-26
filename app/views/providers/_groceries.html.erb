@@ -1,25 +1,41 @@
-<h1>Search</h1>
-<%= form_tag(user_grocery_search_path(@senior), {:class => "form", method: :get}) do %>
-  <%= text_field_tag (:query) %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end -%>
-<!-- search kroger -->
-<!-- list result with a link -->
-<!-- link will save as a provider action -->
-<% if @products %>
-  <div class="search-results mt-3">
-    <% @products['data'].each do |product| %>
-      <%= simple_form_for [ @senior, @provider_action ] do |f| %>
-        <div class="card-button">
-          <%= image_tag product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'], alt: "alttext" %>
-          <div class="card-info">
-            <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
-            <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
-            <p><%= product['description']%></p>
-          </div>
-          <%= f.button :submit, "", class: "button-card-link" %>
-        </div>
-      <% end %>
+<div class="d-flex">
+  <div class="container" style="flex: 30%">
+    <h1>Search</h1>
+    <%= form_tag(user_grocery_search_path(@senior), {:class => "form", method: :get}) do %>
+      <%= text_field_tag (:query) %>
+      <%= submit_tag "Search", class: "btn btn-primary"%>
+    <% end -%>
+    <!-- search kroger -->
+    <!-- list result with a link -->
+    <!-- link will save as a provider action -->
+    <% if @products %>
+      <div class="search-results mt-3">
+        <% @products['data'].each do |product| %>
+          <%= simple_form_for [ @senior, @provider_action ] do |f| %>
+            <div class="card-button">
+              <%= image_tag product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'], alt: "alttext" %>
+              <div class="card-info">
+                <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
+                <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
+                <p><%= product['description']%></p>
+              </div>
+              <%= f.button :submit, "", class: "button-card-link" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-<% end %>
+  <div class="container" id="inactive" style="flex: 70%">
+    <h1>Groceries</h1>
+    <ul id="grocery-items-inactive">
+      <% @provider.provider_actions.where(user: @senior).each do |item| %>
+        <li>
+          <div class="card-grocery-item">
+            <%= item.name %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
