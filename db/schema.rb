@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_064802) do
+ActiveRecord::Schema.define(version: 2020_08_26_054254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,13 +71,14 @@ ActiveRecord::Schema.define(version: 2020_08_24_064802) do
   create_table "provider_actions", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
-    t.boolean "disabled"
     t.bigint "user_id", null: false
     t.bigint "provider_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number"
     t.string "facetime_id"
+    t.float "price"
+    t.boolean "enabled", default: false
     t.index ["provider_id"], name: "index_provider_actions_on_provider_id"
     t.index ["user_id"], name: "index_provider_actions_on_user_id"
   end

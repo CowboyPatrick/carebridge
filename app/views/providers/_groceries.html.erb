@@ -13,10 +13,15 @@
         <% @products['data'].each do |product| %>
           <%= simple_form_for [ @senior, @provider_action ] do |f| %>
             <div class="card-button">
-              <%= image_tag product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'], alt: "alttext" %>
+              <% photo_url = product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'] %>
+              <%= image_tag photo_url, alt: "alttext" %>
               <div class="card-info">
                 <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
                 <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
+                <%= f.input :price, input_html: { value: product['items'][0]['price']['regular'].to_f }, as: :hidden %>
+                <%= f.simple_fields_for :additional_info do |p| %>
+                  <%= p.input :photo_url, input_html: { value: photo_url }, as: :hidden %>
+                <% end %>
                 <p><%= product['description']%></p>
               </div>
               <%= f.button :submit, "", class: "button-card-link" %>
@@ -30,11 +35,42 @@
     <h1>Groceries</h1>
     <ul id="grocery-items-inactive">
       <% @provider.provider_actions.where(user: @senior).each do |item| %>
-        <li>
-          <div class="card-grocery-item">
-            <%= item.name %>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0" style="display: flex">
+                <div class="container">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= item.id %>" aria-expanded="true" aria-controls="collapse<%= item.id %>">
+                    <%= item.name %>
+                  </button>
+                </div>
+                <div class="item-toggle my-auto">
+                  <label class="toggle-switchy" for="toggle<%= item.id %>" data-color="green">
+                    <input checked type="checkbox" id="toggle<%= item.id %>">
+                    <span class="toggle">
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <!--  <input id="toggle-trigger" type="checkbox" checked data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger"> -->
+                </div>
+              </h5>
+            </div>
+            <div id="collapse<%= item.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div class="card-grocery-item">
+                  <div class="card-image">
+                    <%= cl_image_tag (item.photo.attached? ? item.photo.key : "" ), alt: "alttext" %>
+                  </div>
+                  <div class="d-flex justify-content-between w-100">
+                    <div class="card-description my-auto">
+                      <%= item.name %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </li>
+        </div>
       <% end %>
     </ul>
   </div>
