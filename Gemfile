@@ -33,7 +33,7 @@ gem 'devise'
 # Added Gems
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'autoprefixer-rails'
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary', '~> 1.16.0'
 gem 'font-awesome-sass'
 gem 'line-bot-api'
 gem 'pundit'
