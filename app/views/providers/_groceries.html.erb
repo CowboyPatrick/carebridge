@@ -34,16 +34,42 @@
     <h1>Groceries</h1>
     <ul id="grocery-items-inactive">
       <% @provider.provider_actions.where(user: @senior).each do |item| %>
-        <li>
-          <div class="card-grocery-item">
-            <div class="card-description">
-              <%= item.name %>
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0" style="display: flex">
+                <div class="container">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= item.id %>" aria-expanded="true" aria-controls="collapse<%= item.id %>">
+                    <%= item.name %>
+                  </button>
+                </div>
+                <div class="item-toggle my-auto">
+                  <label class="toggle-switchy" for="toggle<%= item.id %>" data-color="green">
+                    <input checked type="checkbox" id="toggle<%= item.id %>">
+                    <span class="toggle">
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <!--  <input id="toggle-trigger" type="checkbox" checked data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger"> -->
+                </div>
+              </h5>
             </div>
-            <div class="card-image">
-              <%#= item.photo %>
+            <div id="collapse<%= item.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div class="card-grocery-item">
+                  <div class="card-image">
+                    <%= cl_image_tag (item.photo.attached? ? item.photo.key : "" ), alt: "alttext" %>
+                  </div>
+                  <div class="d-flex justify-content-between w-100">
+                    <div class="card-description my-auto">
+                      <%= item.name %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </li>
+        </div>
       <% end %>
     </ul>
   </div>
