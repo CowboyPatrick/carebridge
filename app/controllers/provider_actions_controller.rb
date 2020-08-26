@@ -36,7 +36,7 @@ class ProviderActionsController < ApplicationController
   private
 
   def provider_action_params
-    params.require(:provider_action).permit(:name, :photo, :provider_id, :price, :enabled)
+    params.require(:provider_action).permit(:name, :photo, :provider_id, :price, :enabled, :facetime_id)
   end
 
   def attach_url_photo(proaction, photo)
