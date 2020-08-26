@@ -1,6 +1,6 @@
 <%= simple_form_for [ @senior, @provider_action ] do |f| %>
   <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
-  <%= form.input :location %>
-  <%= form.input :address %>
-  <%= form.button :submit, "Add location", class: "btn btn-primary" %>
+  <%= f.input :location %>
+  <%= f.input :address %>
+  <%= f.button :submit, "Add location", class: "btn btn-primary" %>
 <% end %>
