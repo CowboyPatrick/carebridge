@@ -1,23 +1,25 @@
-<h1>Groceries</h1>
+<h1>Search</h1>
 <%= form_tag(user_grocery_search_path(@senior), {:class => "form", method: :get}) do %>
   <%= text_field_tag (:query) %>
-  <%= submit_tag('Search')  %>
+  <%= submit_tag "Search", class: "btn btn-primary", type: "button" %>
 <% end -%>
 <!-- search kroger -->
 <!-- list result with a link -->
 <!-- link will save as a provider action -->
 <% if @products %>
-  <% @products['data'].each do |product| %>
-    <%= simple_form_for [ @senior, @provider_action ] do |f| %>
-      <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
-      <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
-      <%= f.button :submit, "#{product['description']}" %>
-      <%= image_tag product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'large' }['url'], alt: "alttext" %>
+  <div class="search-results mt-3">
+    <% @products['data'].each do |product| %>
+      <%= simple_form_for [ @senior, @provider_action ] do |f| %>
+        <div class="card-button">
+          <%= image_tag product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'], alt: "alttext" %>
+          <div class="card-info">
+            <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
+            <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
+            <p><%= product['description']%></p>
+          </div>
+          <%= f.button :submit, "", class: "button-card-link" %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
-<% if false %>
-  <%= simple_form_for [ @senior, @provider_action ] do |f| %>
-    <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
-  <% end %>
+  </div>
 <% end %>

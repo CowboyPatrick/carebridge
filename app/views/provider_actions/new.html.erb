@@ -1,26 +1,17 @@
-<% if @provider %>
-  <div class="d-flex">
-    <div class="container" style="flex: 30%">
-      <%= render "providers/#{@provider.name.downcase}" %>
-    <% end %>
+<div class="d-flex">
+  <div class="container" style="flex: 30%">
+    <%= render "providers/#{@provider.name.downcase}" %>
   </div>
-  <div class="d-flex" style="flex: 70%">
-    <div class="container" id="inactive">
-      <h1>Inactive</h1>
-      <ul id="grocery-items-inactive">
-        <% @provider.provider_actions.where(user: @senior).each do |item| %>
-          <li>
-            <div class="card-grocery-item">
-              <%= item.name %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="container" id="active">
-      <h1>Active</h1>
-      <ul id="grocery-items-active">
-      </ul>
-    </div>
+  <div class="container" id="inactive" style="flex: 70%">
+    <h1>Groceries</h1>
+    <ul id="grocery-items-inactive">
+      <% @provider.provider_actions.where(user: @senior).each do |item| %>
+        <li>
+          <div class="card-grocery-item">
+            <%= item.name %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
