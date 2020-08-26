@@ -133,7 +133,7 @@ familyjoc.each do |person|
   ProviderAction.create!(name: "#{person}",
                          provider: facetime,
                          user: grandpa,
-                         disabled: false)
+                         enabled: true)
 end
 
 
@@ -142,10 +142,10 @@ puts "Adding emergency button"
 emergency = Provider.create!(name: "Emergency",
                              tag_list: "SOS" )
 puts "Adding taxi button"
-taxi = Provider.create!(name: "taxi",
+taxi = Provider.create!(name: "Taxi",
                         tag_list: "transportation" )
 puts "Adding food_delivery button"
-food_delivery = Provider.create!(name: "food_delivery",
+food_delivery = Provider.create!(name: "Food delivery",
                                  tag_list: "delivery" )
 
 

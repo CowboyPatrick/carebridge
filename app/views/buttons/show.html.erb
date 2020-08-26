@@ -1,22 +1,23 @@
-<div class="container" style="height: 100vh">
-  <div class="col pt-3">
-    <h1 style="text-align: center;margin: 56px 0;"><%= @button.name %></h1>
-    <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
-        Return
-      <% end %>
+<div class="senior-background">
+  <div class="container" style="height: 100vh">
+    <div class="col pt-3">
+      <h1 style="text-align: center;margin: 56px 0;"><%= @button.name %></h1>
+      <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
+          Return
+        <% end %>
+      </div>
+      <div class="form-order">
+        <% if @button.provider.tag_list.include?("Shopping") %>
+          <%= render 'provider_actions/shopping', button: @button %>
+        <% elsif @button.provider.name == "FaceTime"  %>
+          <%= render 'provider_actions/facetime', button: @button %>
+        <% elsif @button.provider.name == "Emergency" %>
+          <%= render 'provider_actions/emergencybtn', button: @button %>
+        <% elsif @button.provider.name == "Taxi"  %>
+          <%= render 'provider_actions/facetime', button: @button %>
+        <% elsif @button.provider.name == "Food delivery" %>
+          <%= render 'provider_actions/emergencybtn', button: @button %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="form-order">
-    <% if @button.provider.tag_list.include?("Shopping") %>
-      <%= render 'provider_actions/shopping', button: @button %>
-    <% elsif @button.provider.name == "FaceTime"  %>
-      <%= render 'provider_actions/facetime', button: @button %>
-    <% elsif @button.provider.name == "Emergency" %>
-      <%= render 'provider_actions/emergencybtn', button: @button %>
-    <% elsif @button.provider.name == "Taxi"  %>
-      <%= render 'provider_actions/facetime', button: @button %>
-    <% elsif @button.provider.name == "Food delivery" %>
-      <%= render 'provider_actions/emergencybtn', button: @button %>
-    <% end %>
-  </div>
-</div>
