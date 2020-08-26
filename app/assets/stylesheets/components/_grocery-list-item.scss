@@ -53,3 +53,31 @@
   padding: auto;
   margin: auto;
 }
+
+.ftcard {
+  background-color: #FEF0FA;
+  margin: 10px;
+  border: 1px solid #FEC5EE;
+  border-radius: 4px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  box-shadow: 0 0 8px pink;
+
+}
+
+.ftcard img{
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  padding: 6px;
+  border-radius: 50%;
+
+}
+
+.ftcard-info {
+  padding: auto;
+  margin: auto;
+}

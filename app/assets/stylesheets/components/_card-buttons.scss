@@ -22,7 +22,7 @@
 .grid-container-2 h1 {
   font-size: 24px;
   text-align: center;
-  padding-top: 10px;
+
 }
 
 .grid-item-group {
@@ -34,17 +34,25 @@
 }
 
 .grid-item img {
-  border-radius: 50%;
+  border-radius: 48px;
   height: 300px;
   width: 300px;
-  border: 3px solid rgba(230px, 230px, 30px, 0.4);
-  box-shadow: 3px 4px 0px 0px rgba(0, 0, 0, 0.2);
+  // border: 3px solid rgba(230px, 230px, 30px, 0.4);
+   border: 2px solid rgba(100px, 129px, 172px, 0.2);
+  box-shadow: 3px 4px 0px 0px rgba(0, 0, 0, 0.3);
   background-image: cover;
   object-fit: cover;
 }
 .grid-item img:active{
   position:relative;
-  top:3px;
+  top:10px;
+  box-shadow: 0 0 8px #F26FB0;
+  border: 3px solid rgba(100px, 129px, 172px, 0.1);
+}
+
+.grid-item h1 {
+
+margin-top: 16px;
 }
 
 .grid-container {
@@ -78,7 +86,7 @@
 }
 .grid-item-2 img:active{
   position:relative;
-  top:3px;
+  top:10px;
 }
 
 

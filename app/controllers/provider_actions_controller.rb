@@ -34,7 +34,7 @@ class ProviderActionsController < ApplicationController
   private
 
   def provider_action_params
-    params.require(:provider_action).permit(:name, :photo, :provider_id)
+    params.require(:provider_action).permit(:name, :photo, :provider_id, :facetime_id)
   end
 
 end

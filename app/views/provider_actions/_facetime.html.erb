@@ -1,11 +1,13 @@
 <div class="form-group">
-  <label class="control-label check_boxes"></label>
-  <div class="category-choices">
+  <div class="facetime-choices">
     <% @button.provider_actions.where(user: current_user).each_with_index do |provider_action, index| %>
-      <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
-      <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">
-        <a href="facetime:mickeyogawa@hotmail.co.jp" style = "color:black"> <%="Call #{provider_action.name}" %> </a>
-      </label>
+      <div class="facetime-choice" >
+        <!-- <a href="facetime:provider_action.facetime_id" style = "color:black"> "Call #{provider_action.name}" %> </a> -->
+        <%= link_to "facetime:#{provider_action.facetime_id }", {:style=>'color:black;'} do%>
+          <%= cl_image_tag (provider_action.photo.attached? ? provider_action.photo.key : "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" ), alt: "alttext" %>
+        <%end %>
+        <h1>Call <%= provider_action.name.capitalize %></h1>
+      </div>
     <% end %>
   </div>
 </div>
