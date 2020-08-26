@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user.caregiver = current_user
     authorize @user
     if @user.save
-      redirect_to dashboard_path
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   end
 
   def dashboard
+    @user = current_user.seniors.first
     authorize current_user
+    redirect_to user_path(@user)
   end
 
   private
