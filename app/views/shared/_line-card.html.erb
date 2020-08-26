@@ -1,0 +1,37 @@
+<div class="container" style="text-align: center">
+  <div class="line-image pb-4">
+    <% line = current_user.line_id.present? %>
+    <% if line == true %>
+      <div class="d-flex" style="flex-direction: column;">
+        <div class="line-image">
+          <%= image_tag "lineqr.png", alt: "LINE QR code", style: "width: 40%" %>
+        </div>
+        <div class="d-flex pt-3" style="flex-direction: column;">
+          <div class="line-icon">
+            <i class="fas fa-check-circle" id="line-connected"></i>
+          </div>
+          <div class="line-status">
+            <p>Connected</p>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="d-flex" style="flex-direction: column;">
+        <div class="line-image">
+          <%= image_tag "lineqr.png", alt: "LINE QR code", style: "width: 40%" %>
+        </div>
+        <div class="d-flex pt-3" style="flex-direction: column;">
+          <div class="line-icon">
+            <i class="fas fa-times-circle" id="line-disconnected"></i>
+          </div>
+          <div class="line-status">
+            <p>Not Connected</p>
+          </div>
+          <div class="line-description">
+            <p>Scan this QR code with LINE to add your Care Bridge as a friend.</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

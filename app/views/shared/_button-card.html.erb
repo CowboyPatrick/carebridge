@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="container py-3" style="text-align: center">
+    <h3><%= @senior.first_name.capitalize %>'s Active Buttons</h3>
+  </div>
+  <div  id="items">
+    <div class="grid-container-2">
+      <% @senior.buttons.each do |button|%>
+        <div class="grid-item-group-2">
+          <%= link_to new_user_provider_action_path(@senior, provider: button.provider), id: "#{button.name.underscore}-button" do %>
+            <li class="grid-item-2">
+              <div class="container">
+                <%= cl_image_tag (button.photo.attached? ? button.photo.key : "https://www.clker.com/cliparts/f/q/Q/u/f/t/push-button-glossy-red-hi.png" ), alt: "alttext" %>
+                <h1> <%= button.name %> </h1>
+              </div>
+            </li>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container pb-3" style="text-align: center">
+    <%= link_to 'Add service', new_user_button_path(@senior), class: "btn btn-primary"%>
+  </div>
+</div>
