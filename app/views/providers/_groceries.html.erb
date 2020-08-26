@@ -32,7 +32,12 @@
       <% @provider.provider_actions.where(user: @senior).each do |item| %>
         <li>
           <div class="card-grocery-item">
-            <%= item.name %>
+            <div class="card-description">
+              <%= item.name %>
+            </div>
+            <div class="card-image">
+              <%#= item.photo %>
+            </div>
           </div>
         </li>
       <% end %>

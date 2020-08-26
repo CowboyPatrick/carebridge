@@ -2,23 +2,11 @@
   list-style: none;
   padding: 0;
   background-color: white;
-  border: 2px solid #F26EAF;
   .card-grocery-item {
       margin: 1px;
       padding: 5px 10px;
       border: 1px solid #F26EAF;
-    }
-  }
-#grocery-items-active {
-  height: 236px;
-  list-style: none;
-  padding: 0;
-  border: 2px solid #F26EAF;
-  .card-grocery-item {
-    background-color: #DFFEFC;
-      margin: 1px;
-      padding: 5px 10px;
-      border: 1px solid #F26EAF;
+      display: flex;
     }
   }
 
