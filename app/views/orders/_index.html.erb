@@ -5,12 +5,14 @@
         <tr>
           <th scope="col">Item:</th>
           <th scope="col">Time:</th>
+          <th scope="col">Price:</th>
         </tr>
       </thead>
       <% order.provider_actions.each do |provider_action|%>
         <tr>
           <td> <%= provider_action.name%></td>
           <td><%= order.created_at.in_time_zone("Asia/Tokyo").strftime("%b %e, %l:%M %p")  %></td>
+          <td><%= provider_action.price %></td>
         </tr>
       <%end %>
     </table>
