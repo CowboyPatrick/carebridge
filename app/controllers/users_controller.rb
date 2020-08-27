@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @button = Button.new
     @senior = User.find(params[:id])
     authorize current_user
   end

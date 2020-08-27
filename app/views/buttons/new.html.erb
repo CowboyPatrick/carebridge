@@ -1,9 +1,0 @@
-<!-- new.html.erb FOR MAKING A NEW BUTTON -->
-<div class="container">
-  <%= simple_form_for [ @senior, @button ] do |f| %>
-    <%= f.association :provider %>
-
-    <%= f.button :submit,'Add a service', class: 'btn-primary' %>
-
-  <% end %>
-</div>

@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="container" style="text-align: center">
-    <h1><%= @senior.first_name.capitalize %>'s Buttons</h1>
+    <h1>Angel Services</h1>
   </div>
   <div  id="items">
     <div class="grid-container-2">
@@ -20,9 +20,19 @@
           <% end %>
         </div>
       <% end %>
+      <div class="grid-item-group-2" >
+        <%= render 'buttons/new' %>
+        <li class="grid-item-2">
+          <div class="container my-3">
+            <div class="container" data-toggle="modal" data-target="#serviceModal">
+              <%= cl_image_tag "https://www.clker.com/cliparts/f/q/Q/u/f/t/push-button-glossy-red-hi.png", alt: "alttext" %>
+            </div>
+            <div class="container mt-3">
+              <h1> Add a Service </h1>
+            </div>
+          </div>
+        </li>
+      </div>
     </div>
-  </div>
-  <div class="container pb-3" style="text-align: center">
-    <%= link_to 'Add service', new_user_button_path(@senior), class: "btn btn-primary"%>
   </div>
 </div>
