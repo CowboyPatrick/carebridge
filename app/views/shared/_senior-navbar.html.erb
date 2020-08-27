@@ -6,7 +6,7 @@
     <div class= "tilte-page">
       <h1><%= button.name %></h1>
     </div>
-    <div class= "next-page">
+    <div class= "next-page <%= "background-pink" if button.name.downcase == "groceries" %>">
       <% if button.name.downcase == "groceries" %>
         <!-- <button type="button" id="next-page-order">Order Now</button> -->
         <%= link_to 'Order Now', '#', class: 'order', id: 'next-page-order', disabled: true %>

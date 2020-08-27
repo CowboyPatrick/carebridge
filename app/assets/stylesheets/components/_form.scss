@@ -55,6 +55,7 @@
   // border: 3px solid rgba(230px, 230px, 30px, 0.4);
   background-image: cover;
   object-fit: cover;
+  margin-bottom: 20px;
 }
 
 .category-choice.active {
@@ -64,7 +65,7 @@
     top:10px;
     box-shadow: 0 0 8px #F26FB0;
     border: 3px solid rgba(100px, 129px, 172px, 0.1);
-    background: #F26FB0;
+    background: #6682E6;
     filter: brightness(0.9);
   }
 }
