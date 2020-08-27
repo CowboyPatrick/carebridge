@@ -5,8 +5,10 @@ class ProviderActionsController < ApplicationController
     @senior = User.find(params[:user_id])
     @provider_action.user = @senior
     authorize @provider_action
-    @small_photo_url = params[:provider_action][:additional_info][:photo_url]
-    attach_url_photo(@provider_action, @small_photo_url) if @small_photo_url.present?
+    if params[:provider_action][:additional_info]
+      @small_photo_url = params[:provider_action][:additional_info][:photo_url]
+      attach_url_photo(@provider_action, @small_photo_url)
+    end
     @provider = @provider_action.provider
     if @provider_action.save
       redirect_to new_user_provider_action_path(@senior, provider: @provider_action.provider)
