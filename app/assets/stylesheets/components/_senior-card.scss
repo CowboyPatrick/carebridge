@@ -20,6 +20,19 @@
   padding: 6px;
   background: #FDDBB6;
   border-radius: 50%;
+  z-index: 1;
+}
+
+.card-senior-infos-active img {
+  height: 120px;
+  width: 120px;
+  background-image: cover;
+  object-fit: cover;
+  padding: 6px;
+  background: #FDDBB6;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 18px 12px white;
 }
 
 .container-seniors {
