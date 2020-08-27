@@ -1,40 +1,15 @@
 .form-order {
 
-  margin-top: 20px;
+  // margin-top: 145px;
   padding: 20px;
-
-
+    // height: calc(100vh - 145px);
   .form-order h1 {
     text-align: center;
     font-weight: bold;
     font-size: 25px;
-    color: #7E5DFE;
-
-
-
-
-
+    color: white;
   }
-  .create-btn {
-    width: 100%;
-    padding: 20px;
-    font-weight: bold;
-    font-size: 30px;
-    border-radius: 5px;
-    box-shadow: 3px 4px 0px 0px #DE1665;
-    color:white;
-  }
-
 }
-
-.menu-btn{
-
-    position: absolute;
-    top: 72px;
-    left: 18px;
-    bottom: 0;
-
-  }
 
 // Checkboxes design
 .category-choices {
@@ -147,8 +122,8 @@
 }
 
 .facetime-choice h1 {
-  font-size: 30px;
-  color: #F26FB0;
+  font-size: 20px;
+  color: white;
   text-align:center;
   margin-top: 16px;
 }

@@ -33,12 +33,14 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initButtonSelector } from '../components/button_selector';
 import { getPosition } from '../components/emergencyBtn';
+import { orderSubmit } from '../components/order_submit';
+
 
 document.addEventListener('turbolinks:load', () => {
   initButtonSelector();
   getPosition();
+  orderSubmit();
+
 });
 
- document.getElementById("slider").addEventListener("click", function(){
-  document.getElementById("collapsedinfo").innerHTML = "Hello World";
-  });
+

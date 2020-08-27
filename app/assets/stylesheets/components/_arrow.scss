@@ -1,22 +1,29 @@
-$bkBtnSize: 52px;
+$bkBtnSize: 80px;
 .bk-btn {
-  height: $bkBtnSize;
-  width: $bkBtnSize;
-  background-color: black;
-  border-radius: 50%;
+    width: $bkBtnSize;
+    padding: 20px;
+
+    border-radius: 5px;
+    box-shadow: 3px 4px 0px 0px pink;
+    background-color: white;
+    position:absolute;
+    top: 72px;
+    left: 10%;
+
+
+
   .bk-btn-triangle {
     position: relative;
     top: $bkBtnSize*0.25;
     left: $bkBtnSize*0.2;
-    width: 0;
-    height: 0;
+
     border-top: $bkBtnSize*0.25 solid transparent;
     border-bottom: $bkBtnSize*0.25 solid transparent;
-    border-right: $bkBtnSize*0.25 solid white;
+    border-right: $bkBtnSize*0.25 solid pink;
   }
   .bk-btn-bar {
     position: relative;
-    background-color: white;
+    background-color: pink;
     height: $bkBtnSize*0.15;
     width: $bkBtnSize*0.25;
     top: $bkBtnSize*-0.07;
