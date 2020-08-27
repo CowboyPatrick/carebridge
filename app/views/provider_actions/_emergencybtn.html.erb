@@ -1,7 +1,7 @@
-<h1 id="emergency-status" style= "text-align: center; color:black;"> Emergency notification sent to <%= current_user.caregiver.first_name.capitalize %>  🚑</h1>
-<div class="form-group">
+<h1 id="emergency-status"class= "emergency" style= "text-align: center; color:black;"> Emergency notification sent to <%= current_user.caregiver.first_name.capitalize %>  🚑</h1>
+<div class="container">
   <label class="control-label check_boxes"></label>
-  <div class="category-choice" style = "justify-content: center">
+  <div class="emergency-choice" style = "justify-content: center">
     <%= link_to "facetime:jocelyn627@hotmail.com", {:style=>'color:black;'} do%>
       <img src="https://zento-yoyo.com/wp-content/uploads/2019/10/sos-02-a.jpg" >
     <%end %>

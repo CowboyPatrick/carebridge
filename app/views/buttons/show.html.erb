@@ -16,9 +16,9 @@
     <% elsif @button.provider.name == "Emergency" %>
       <%= render 'provider_actions/emergencybtn', button: @button %>
     <% elsif @button.provider.name == "Taxi"  %>
-      <%= render 'provider_actions/facetime', button: @button %>
+      <%= render 'provider_actions/taxi', button: @button %>
     <% elsif @button.provider.name == "Food delivery" %>
-      <%= render 'provider_actions/emergencybtn', button: @button %>
+      <%= render 'provider_actions/food_delivery', button: @button %>
     <% end %>
   </div>
 </div>
