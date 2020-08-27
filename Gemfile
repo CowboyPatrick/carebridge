@@ -39,6 +39,7 @@ gem 'line-bot-api'
 gem 'pundit'
 gem 'rest-client'
 gem 'simple_form'
+gem 'turbolinks_render'
 
 
 group :development, :test do  gem 'pry-byebug'
