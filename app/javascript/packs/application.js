@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import Sortable from 'sortablejs';
+
 
 
 
