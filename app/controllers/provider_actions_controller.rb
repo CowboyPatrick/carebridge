@@ -27,7 +27,7 @@ class ProviderActionsController < ApplicationController
     @provider_action = ProviderAction.find(params[:id])
     @provider_action.update(provider_action_params)
     authorize @provider_action
-    redirect_to new_user_provider_action_path(@provider_action.user)
+    redirect_to new_user_provider_action_path(@provider_action.user, provider: @provider_action.provider)
   end
 
   def grocery_search
