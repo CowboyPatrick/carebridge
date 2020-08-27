@@ -5,6 +5,10 @@
       <div class= "menu-btn"> <%=link_to buttons_path, class:'btn btn-return' do %>
           Return
         <% end %>
+        <div class="bk-btn">
+          <div class="bk-btn-triangle"></div>
+          <div class="bk-btn-bar"></div>
+        </div>
       </div>
       <div class="form-order">
         <% if @button.provider.tag_list.include?("Shopping") %>
