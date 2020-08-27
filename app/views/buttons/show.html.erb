@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="form-order">
-        <% if @button.provider.tag_list.include?("Shopping") %>
+        <% if @button.provider.name == "Groceries" %>
           <%= render 'provider_actions/shopping', button: @button %>
         <% elsif @button.provider.name == "FaceTime"  %>
           <%= render 'provider_actions/facetime', button: @button %>

@@ -22,9 +22,13 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @user = current_user.seniors.first
     authorize current_user
-    redirect_to user_path(@user)
+    if current_user.has_seniors?
+      @user = current_user.seniors.first
+      redirect_to user_path(@user)
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
   private
