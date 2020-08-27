@@ -1,6 +1,6 @@
 <div id="senior-navbar" class= "senior-navbar" style="display: flex">
   <%= link_to buttons_path do %>
-    <div class= "return-page">Return</div>
+    <div class= "return-page"><i class="fas fa-arrow-circle-left"></i></div>
   <% end %>
   <% if button %>
     <div class= "tilte-page">
@@ -9,7 +9,9 @@
     <div class= "next-page <%= "background-pink" if button.name.downcase == "groceries" %>">
       <% if button.name.downcase == "groceries" %>
         <!-- <button type="button" id="next-page-order">Order Now</button> -->
-        <%= link_to 'Order Now', '#', class: 'order', id: 'next-page-order', disabled: true %>
+        <%= link_to '#', class: 'order', id: 'next-page-order', disabled: true do %>
+          <i class="fas fa-check-circle d-none"></i>
+        <% end %>
       <% end %>
     </div>
   <% end %>
