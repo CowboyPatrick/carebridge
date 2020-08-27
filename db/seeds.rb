@@ -97,6 +97,7 @@ grandpa = User.new(first_name: "bob",
                    password: '123123',
                    username: "bob",
                    caregiver_id: jocelyn.id)
+grandpa.save
 
 
 
@@ -105,54 +106,70 @@ grandpa.photo.attach(io: file, filename: 'grandpa.jpg', content_type: 'image/jpg
 
 puts "sweet, photo attached!"
 
+puts "Creating Providers!"
+puts "Groceries....."
+groceries = Provider.create!(name: "Groceries")
+file = URI.open('app/assets/images/grocery.png')
+groceries.photo.attach(io: file, filename: 'grocery_button.png', content_type: 'image/png')
 
-puts "Creating groceries"
-groceries = Provider.create!(name: "groceries",
-                             tag_list: "Shopping")
+puts "Emergency...."
+emergency = Provider.create!(name: "Emergency")
+file = URI.open('app/assets/images/emergency.png')
+emergency.photo.attach(io: file, filename: 'emergency_button.png', content_type: 'image/png')
+
+puts "FaceTime...."
+facetime = Provider.create!(name: "FaceTime")
+file = URI.open('app/assets/images/FaceTime.png')
+facetime.photo.attach(io: file, filename: 'facetime_button.png', content_type: 'image/png')
+
+puts "delivery...."
+delivery = Provider.create!(name: "Food Delivery")
+file = URI.open('app/assets/images/delivery.png')
+delivery.photo.attach(io: file, filename: 'delivery.png', content_type: 'image/png')
+
+puts "taxi...."
+taxi = Provider.create!(name: "Taxi")
+file = URI.open('app/assets/images/taxi.png')
+taxi.photo.attach(io: file, filename: 'taxi.png', content_type: 'image/png')
+
+# file = URI.open("https://i.pinimg.com/originals/f6/db/eb/f6dbeb17951cb9d12c450eb26e42e484.jpg")
+# shopping_btn = Button.create!(user: grandpa,
+#                               provider: groceries,
+#                               name: "Groceries" )
+# shopping_btn.photo.attach(io: file, filename: 'amazon.jpg', content_type: 'image/jpg')
+
+# #Creating Factime provider and buttons
+
+# puts "Adding voice chat button"
+# facetime = Provider.create!(name: "FaceTime",
+#                             tag_list: "communication" )
+
+# familyjoc = ["Mickey", "Vivian", "Jocelyn"]
+
+# familyjoc.each do |person|
+#   ProviderAction.create!(name: "#{person}",
+#                          provider: facetime,
+#                          user: grandpa,
+#                          enabled: true)
+# end
 
 
 
+# puts "Adding emergency button"
+# emergency = Provider.create!(name: "Emergency",
+#                              tag_list: "SOS" )
+# puts "Adding taxi button"
+# taxi = Provider.create!(name: "Taxi",
+#                         tag_list: "transportation" )
+# puts "Adding food_delivery button"
+# food_delivery = Provider.create!(name: "Food delivery",
+#                                  tag_list: "delivery" )
 
 
 
-file = URI.open("https://i.pinimg.com/originals/f6/db/eb/f6dbeb17951cb9d12c450eb26e42e484.jpg")
-shopping_btn = Button.create!(user: grandpa,
-                              provider: groceries,
-                              name: "Groceries" )
-shopping_btn.photo.attach(io: file, filename: 'amazon.jpg', content_type: 'image/jpg')
+# file = URI.open("https://hackernoon.com/hn-images/1*3462gy-_U_FrHlMf0o-dow.png")
+# videochat = Button.create!(user: grandpa,
+#                            provider: facetime,
+#                            name: "Video Chat")
 
-#Creating Factime provider and buttons
-
-puts "Adding voice chat button"
-facetime = Provider.create!(name: "FaceTime",
-                            tag_list: "communication" )
-
-familyjoc = ["Mickey", "Vivian", "Jocelyn"]
-
-familyjoc.each do |person|
-  ProviderAction.create!(name: "#{person}",
-                         provider: facetime,
-                         user: grandpa,
-                         enabled: true)
-end
-
-
-
-puts "Adding emergency button"
-emergency = Provider.create!(name: "Emergency",
-                             tag_list: "SOS" )
-puts "Adding taxi button"
-taxi = Provider.create!(name: "Taxi",
-                        tag_list: "transportation" )
-puts "Adding food_delivery button"
-food_delivery = Provider.create!(name: "Food delivery",
-                                 tag_list: "delivery" )
-
-
-
-file = URI.open("https://hackernoon.com/hn-images/1*3462gy-_U_FrHlMf0o-dow.png")
-videochat = Button.create!(user: grandpa,
-                           provider: facetime,
-                           name: "Video Chat")
-
-videochat.photo.attach(io: file, filename: 'vc.png', content_type: 'image/png')
+# videochat.photo.attach(io: file, filename: 'vc.png', content_type: 'image/png')
