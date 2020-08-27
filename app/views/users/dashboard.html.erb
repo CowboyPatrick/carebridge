@@ -1,15 +1,8 @@
-<div class="container my-5"  style="text-align: center">
-  <h1>Hi <%="#{current_user.first_name.capitalize}"%>. Who would you like to take care of ? 💙</h1>
-</div>
-<!-- TODO: Make sure this is only showing the correct geezers -->
-<div class="container-seniors">
-  <% current_user.seniors.each do |senior|  %>
-    <!-- <%#= link_to senior.first_name, new_user_button_path(senior)  %> -->
-    <%= render 'shared/senior-card', senior:senior %>
-  <% end %>
-</div>
-<div class="container my-5"  style="text-align: center">
-  <span>
-  </span>
-  <%= link_to "Onboard another senior", new_user_path, class: "btn btn-primary" %>
+<div class="main-container" style="display: flex">
+  <div class="vertical-navbar-container" style="flex: 20%">
+    <%= render 'shared/vertical-navbar' %>
+  </div>
+  <div class="container-dashboard" style="flex: 80%">
+    <p>What should I do here</p>
+  </div>
 </div>

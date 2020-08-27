@@ -23,6 +23,13 @@ class ProviderActionsController < ApplicationController
     @provider = Provider.find(params[:provider]) if params[:provider]
   end
 
+  def update
+    @provider_action = ProviderAction.find(params[:id])
+    @provider_action.update(provider_action_params)
+    authorize @provider_action
+
+  end
+
   def grocery_search
     @senior = User.find(params[:user_id])
     @provider_action = ProviderAction.new

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :orders, only:[:index, :show, :create]
   resources :users, only:[:new, :create, :show] do
-    resources :provider_actions, only:[:new, :create]
+    resources :provider_actions, only:[:new, :create, :update]
     get '/grocery_search', to: 'provider_actions#grocery_search', as: :grocery_search
     resources :buttons, only:[:new, :create]
   end

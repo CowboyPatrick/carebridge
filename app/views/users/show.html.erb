@@ -1,83 +1,30 @@
 <!-- show.html.erb THIS IS FOR THE CAREGIVER TO BE ABLE TO SEE THE SENIORS BUTTONS -->
-<div class="container py-4">
-  <%= render 'shared/senior-card', senior: @senior %>
-</div>
-<div class="senior-show">
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="pills-dashboard-tab" data-toggle="pill" href="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="false">Dashboard</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-requests-tab" data-toggle="pill" href="#pills-requests" role="tab" aria-controls="pills-requests" aria-selected="true">Requests</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="pills-line-tab" data-toggle="pill" href="#pills-line" role="tab" aria-controls="pills-line" aria-selected="true">LINE</a>
-    </li>
-  </ul>
-</div>
-<div class="tab-content mb-3" id="pills-tabContent">
-  <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
-    <!-- render senior orders here -->
-    <%= render 'orders/index', orders: @senior.orders.order(created_at: :desc) %>
+<div class="main-container" style="display: flex">
+  <div class="vertical-navbar-container" style="flex: 16%">
+    <%= render 'shared/vertical-navbar' %>
   </div>
-  <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
-    <div class="container py-3" style="text-align: center">
-      <h3><%= @senior.first_name.capitalize %>'s Action Buttons</h3>
-    </div>
-    <div  id="items">
-      <div class="grid-container-2">
-        <% @senior.buttons.each do |button|%>
-          <div class="grid-item-group-2">
-            <%= link_to new_user_provider_action_path(@senior, provider: button.provider), id: "#{button.name.underscore}-button" do %>
-              <li class="grid-item-2">
-                <div class="container">
-                  <%= cl_image_tag (button.photo.attached? ? button.photo.key : "https://www.clker.com/cliparts/f/q/Q/u/f/t/push-button-glossy-red-hi.png" ), alt: "alttext" %>
-                  <h1> <%= button.name %> </h1>
-                </div>
-              </li>
-            <% end %>
+  <div class="container-dashboard pt-2" style="flex: 84%">
+    <div class="card-container">
+      <div class="container d-flex p-0">
+        <div class="container pt-3" style="flex: 40%" id="profile">
+          <h3>Profile</h3>
+          <p>Fav color magenta</p>
+          <p>69 years old</p>
+          <p>Address??</p>
+          <!-- render settings page -->
+        </div>
+        <div class="d-flex" style="flex-direction: column, flex: 60%">
+          <div class="container mx-3 pt-3" id="orders">
+            <h3>Recent Orders</h3>
+            <%= render 'shared/orders' %>
           </div>
-        <% end %>
+          <div class="container py-4" id="line">
+            <%= render 'shared/line-card'  %>
+          </div>
+        </div>
       </div>
-    </div>
-    <%= link_to 'Add service', new_user_button_path(@senior), class: "btn btn-primary"%>
-  </div>
-  <div class="tab-pane fade show" id="pills-line" role="tabpanel" aria-labelledby="pills-line-tab">
-    <div class="container py-5" style="text-align: center">
-      <div class="line-image pb-4">
-        <% line = current_user.line_id.present? %>
-        <% if line == true %>
-          <div class="d-flex" style="flex-direction: column;">
-            <div class="line-image">
-              <%= image_tag "lineqr.png", alt: "LINE QR code", style: "width: 40%" %>
-            </div>
-            <div class="d-flex pt-3" style="flex-direction: column;">
-              <div class="line-icon">
-                <i class="fas fa-check-circle" id="line-connected"></i>
-              </div>
-              <div class="line-status">
-                <p>Connected</p>
-              </div>
-            </div>
-          </div>
-        <% else %>
-          <div class="d-flex" style="flex-direction: column;">
-            <div class="line-image">
-              <%= image_tag "lineqr.png", alt: "LINE QR code", style: "width: 40%" %>
-            </div>
-            <div class="d-flex pt-3" style="flex-direction: column;">
-              <div class="line-icon">
-                <i class="fas fa-times-circle" id="line-disconnected"></i>
-              </div>
-              <div class="line-status">
-                <p>Not Connected</p>
-              </div>
-              <div class="line-description">
-                <p>Scan this QR code with LINE to add your Care Bridge as a friend.</p>
-              </div>
-            </div>
-          </div>
-        <% end %>
+      <div class="container mt-4" id="activebuttons">
+        <%= render 'shared/button-card' %>
       </div>
     </div>
   </div>

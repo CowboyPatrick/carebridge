@@ -1,0 +1,10 @@
+<div class="vertical-navbar">
+  <% current_user.seniors.each do |senior|  %>
+    <div class="senior-card">
+      <%= render 'shared/senior-card', senior:senior %>
+    </div>
+  <% end %>
+  <div class="container">
+    <%= link_to "Onboard another senior", new_user_path, class: "btn btn-primary" %>
+  </div>
+</div>
