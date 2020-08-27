@@ -1,48 +1,50 @@
-<div class="d-flex">
-  <div class="container" style="flex: 30%">
-    <h1>Search</h1>
-    <%= form_tag(user_grocery_search_path(@senior), {:class => "form", method: :get}) do %>
-      <%= text_field_tag (:query) %>
-      <%= submit_tag "Search", class: "btn btn-primary"%>
-    <% end -%>
-    <!-- search kroger -->
-    <!-- list result with a link -->
-    <!-- link will save as a provider action -->
-    <% if @products %>
-      <div class="search-results mt-3">
-        <% @products['data'].each do |product| %>
-          <%= simple_form_for [ @senior, @provider_action ] do |f| %>
-            <div class="card-button">
-              <% photo_url = product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'] %>
-              <%= image_tag photo_url, alt: "alttext" %>
-              <div class="card-info">
-                <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
-                <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
-                <%= f.input :price, input_html: { value: product['items'][0]['price']['regular'].to_f }, as: :hidden %>
-                <%= f.simple_fields_for :additional_info do |p| %>
-                  <%= p.input :photo_url, input_html: { value: product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'] }, as: :hidden %>
-                <% end %>
-                <p><%= product['description']%></p>
-              </div>
-              <%= f.button :submit, "", class: "button-card-link" %>
+<div class="container">
+  <h1>Search</h1>
+  <%= form_tag(user_grocery_search_path(@senior), {:class => "form", method: :get}) do %>
+    <%= text_field_tag (:query) %>
+    <%= submit_tag "Search", class: "btn btn-primary"%>
+  <% end -%>
+  <!-- search kroger -->
+  <!-- list result with a link -->
+  <!-- link will save as a provider action -->
+  <% if @products %>
+    <div class="search-results mt-3 d-flex flex-wrap">
+      <% @products['data'].each do |product| %>
+        <%= simple_form_for [ @senior, @provider_action ] do |f| %>
+          <div class="card-button">
+            <% photo_url = product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'] %>
+            <%= image_tag photo_url, alt: "alttext" %>
+            <div class="card-info" style="width: 300px"> <!-- YOSHIKI I HARD CODED THE WIDTH HERE -->
+              <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
+              <%= f.input :name, input_html: { value: product['description'] }, as: :hidden %>
+              <%= f.input :price, input_html: { value: product['items'][0]['price']['regular'].to_f }, as: :hidden %>
+              <%= f.simple_fields_for :additional_info do |p| %>
+                <%= p.input :photo_url, input_html: { value: product['images'].find { |thing| thing['perspective'] == 'front' }['sizes'].find { |thing| thing['size'] == 'small' }['url'] }, as: :hidden %>
+              <% end %>
+              <p><%= product['description']%></p>
             </div>
-          <% end %>
+            <%= f.button :submit, "", class: "button-card-link" %>
+          </div>
         <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="container" id="inactive" style="flex: 70%">
-    <h1>Groceries</h1>
-    <ul id="grocery-items-inactive">
-      <% @provider.provider_actions.where(user: @senior).each do |item| %>
-        <div id="accordion">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0" style="display: flex">
-                <div class="container">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%= item.id %>" aria-expanded="true" aria-controls="collapse<%= item.id %>">
-                    <%= item.name %>
-                  </button>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="container">
+  <div class="d-flex">
+    <div class="container" id="inactive" style="flex: 50%">
+      <h1>Groceries</h1>
+      <ul id="grocery-items-inactive">
+        <% @provider.provider_actions.where(user: @senior).each do |item| %>
+          <div class="card-body">
+            <div class="card-grocery-item">
+              <div class="card-image">
+                <%= cl_image_tag (item.photo.attached? ? item.photo.key : "" ), alt: "alttext" %>
+              </div>
+              <div class="d-flex justify-content-between w-100">
+                <div class="card-description my-auto">
+                  <h3>Item: <%= item.name %></h3>
+                  <h6>Price per item: $<%= item.price %></h6>
                 </div>
                 <div id="slider" class="item-toggle my-auto">
                   <%= form_for [current_user ,item] do |f| %>
@@ -56,27 +58,14 @@
                     <%#= f.submit %>
                   <% end %>
                 </div>
-              </h5>
-            </div>
-            <div id="collapse<%= item.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                <div class="card-grocery-item">
-                  <div class="card-image">
-                    <%= cl_image_tag (item.photo.attached? ? item.photo.key : "" ), alt: "alttext" %>
-                  </div>
-                  <div class="d-flex justify-content-between w-100">
-                    <div class="card-description my-auto">
-                      <h3>Item: <%= item.name %></h3>
-                      <h6>Price per item: $<%= item.price %></h6>
-                      <p id="collapsedinfo" ></p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    </div>
+    <div class="container" id="inactive" style="flex: 50%">
+      <%= render 'provider_actions/shopping', button: @button, order: nil %>
+    </div>
   </div>
 </div>

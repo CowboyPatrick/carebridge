@@ -1,10 +1,10 @@
-<%= simple_form_for(@order) do |f| %>
-  <%= hidden_field_tag :button_id, @button.id %>
+<%= simple_form_for(order || :order) do |f| %>
+  <%= hidden_field_tag :button_id, button.id %>
   <div class="form-group">
     <label class="control-label check_boxes"></label>
     <!-- <input type="hidden" name="order[hidden]"> -->
     <div class="category-choices">
-      <% button.provider_actions.where(user: current_user).each_with_index do |provider_action, index| %>
+      <% button.provider_actions.where(user: button.user).each_with_index do |provider_action, index| %>
         <% if provider_action.enabled %>
           <input type="checkbox" class="hidden" value="<%= provider_action.id %>" name="order[order_items_attributes][<%= index %>][provider_action_id]" id="post_category_ids_<%= provider_action.id %>">
           <label for="post_category_ids_<%= provider_action.id %>" class="category-choice">

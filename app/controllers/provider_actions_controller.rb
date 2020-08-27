@@ -23,6 +23,7 @@ class ProviderActionsController < ApplicationController
     @provider_action.user = @senior
     authorize @provider_action
     @provider = Provider.find(params[:provider]) if params[:provider]
+    @button = @senior.buttons.find_by(provider: @provider)
   end
 
   def update
@@ -39,6 +40,7 @@ class ProviderActionsController < ApplicationController
     skip_authorization
     @provider = Provider.find_by(name: 'Groceries')
     @products = Kroger::ProductSearch.call(params[:query])
+    @button = @senior.buttons.find_by(provider: @provider)
     render :new
   end
 
