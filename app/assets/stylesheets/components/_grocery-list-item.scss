@@ -11,6 +11,10 @@
   width: 100%;
 }
 
+#searchresults {
+
+}
+
 .leftfield {
   flex-direction: column;
   display: flex;
@@ -41,13 +45,18 @@
 #grocery-items-inactive {
   list-style: none;
   padding: 0;
-  background-color: white;
   .card-grocery-item {
+      background-color: white;
       margin: 1px;
       padding: 5px 10px;
-      border: 1px solid #F26EAF;
+      border: 2px solid #F26EAF;
+      border-radius: 12px;
       display: flex;
     }
+  }
+
+.card-grocery-item img {
+      height: 100px;
   }
 
 #button-card {
@@ -61,8 +70,8 @@
 .card-button {
   background-color: white;
   margin: 4px;
-  border: 1px solid black;
-  border-radius: 4px;
+  border: 2px solid #F26EAF;
+  border-radius: 12px;
   display: flex;
   position: relative;
   justify-content: space-between;
