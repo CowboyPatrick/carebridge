@@ -35,7 +35,7 @@ class ProviderActionsController < ApplicationController
     @provider_action = ProviderAction.new
     @provider_action.user = @senior
     skip_authorization
-    @provider = Provider.find_by(name: 'groceries')
+    @provider = Provider.find_by(name: 'Groceries')
     @products = Kroger::ProductSearch.call(params[:query])
     render :new
   end
