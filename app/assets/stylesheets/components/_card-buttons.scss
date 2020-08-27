@@ -27,6 +27,7 @@
 
 .grid-item-group {
   // height: 400px;
+  margin: 0px;
   padding: 0px;
   a {
     text-decoration: none;
@@ -42,6 +43,8 @@
   box-shadow: 3px 4px 0px 0px rgba(0, 0, 0, 0.3);
   background-image: cover;
   object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 .grid-item img:active{
   position:relative;
@@ -118,6 +121,11 @@ margin-top: 16px;
 @media (min-width: 992px) {
   .grid-container {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .grid-item img {
+
+    height: 280px;
+    width: 280px;
   }
 }
 

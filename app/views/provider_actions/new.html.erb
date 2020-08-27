@@ -1,1 +1,1 @@
-<%= render "providers/#{@provider.name.downcase}" %>
+<%= render "providers/#{@provider.name.gsub(' ', '_').downcase}" %>
