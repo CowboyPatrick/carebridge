@@ -1,16 +1,63 @@
-<div class="banner-container py-5">
+<div class="banner-container">
   <div class="banner-content">
     <div class="banner-title">
-      <h1>Care Bridge</h1>
-      <p>Take care of your faimly <strong>anywhere, anytime</strong>.</p>
-    </div>
-    <div class="signup-control">
-      <%=link_to new_user_registration_path , class:"btn  btn-pink" do %>
-        <%="Sign up"%>
-      <% end %>
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <div class="user_card pb-5">
+            <div class="d-flex justify-content-center">
+              <div class="brand_logo_container">
+                <img src="https://t3.ftcdn.net/jpg/01/12/40/26/240_F_112402619_5XRTlI8nBZxgA171bTCOkxGOBEJMZIzU.jpg" class="brand_logo" alt="Logo">
+              </div>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+              <!-- <form>
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" name="" class="form-control input_user" value="" placeholder="username">
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+                </div>
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customControlInline">
+                    <label class="custom-control-label" for="customControlInline">Remember me</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3 login_container">
+                  <button type="button" name="button" class="btn login_btn">Login</button>
+                </div>
+              </form> -->
+            </div>
+            <div class="mt-4">
+              <!-- render login form here -->
+              <%= render 'shared/login_form' %>
+            </div>
+            <div class="mt-4">
+              <div class="d-flex justify-content-center links">
+                Don't have an account? 👉🏼
+                <%= link_to "Sign up", new_user_registration_path %>
+              </div>
+              <div class="d-flex justify-content-center links">
+                <%= link_to 'Forgot your password?', new_user_password_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="banner-image">
-    <img src="https://image.freepik.com/free-vector/studying-computer-by-elderly-people-technology-spread-oldster-education-active-social-life-online-communication-senior-couple-with-tablet-learning-use-pc-together-simple-flat_140689-283.jpg" alt="">
+    <div class="main-image">
+      <img src="https://image.freepik.com/free-vector/studying-computer-by-elderly-people-technology-spread-oldster-education-active-social-life-online-communication-senior-couple-with-tablet-learning-use-pc-together-simple-flat_140689-283.jpg" alt="">
+    </div>
+    <div class="bubble">
+      <%= image_tag "bubble.png", alt: "alttext" %>
+    </div>
   </div>
 </div>

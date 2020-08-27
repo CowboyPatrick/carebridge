@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center">
+  <%= simple_form_for :user, url: new_user_session_path do |f| %>
+    <div class="form-inputs">
+      <div class="input-group mb-3">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <%= f.input :username,
+                required: false,
+                autofocus: true,
+                placeholder: 'username',
+                label: false,
+                input_html: { autocomplete: "username" } %>
+      </div>
+      <div class="input-group mb-2">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        <%= f.input :password,
+                required: false,
+                label: false,
+                placeholder: 'password',
+                input_html: { autocomplete: "current-password" } %>
+      </div>
+      <%= f.input :remember_me, as: :boolean %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in" ,class: "btn-primary w-100"%>
+    </div>
+  <% end %>
+</div>
