@@ -31,35 +31,51 @@
 
 .grid-item-group {
   // height: 400px;
-  margin: 0px;
-  padding: 0px;
+    margin: 8px 0px;
+    padding: 0px;
   a {
     text-decoration: none;
+    color: white;
   }
 }
 
+.grid-item {
+  display: flex;
+  justify-content: center;
+}
+
 .grid-item img {
-  border-radius: 48px;
+  border-radius: 15px 15px 0 0;
   height: 300px;
   width: 300px;
   // border: 3px solid rgba(230px, 230px, 30px, 0.4);
    border: 2px solid rgba(100px, 129px, 172px, 0.2);
-  box-shadow: 3px 4px 0px 0px rgba(0, 0, 0, 0.3);
   background-image: cover;
   object-fit: cover;
   -webkit-user-drag: none;
   user-select: none;
+  background-color: aliceblue;
 }
-.grid-item img:active{
+
+.grid-item-button:active{
   position:relative;
-  top:10px;
-  box-shadow: 0 0 8px #F26FB0;
+  top:2px;
+  box-shadow: 0 0 8px gray;
   border: 3px solid rgba(100px, 129px, 172px, 0.1);
 }
 
 .grid-item h1 {
+    background-color: $bluegray;
+    border-radius: 0 0 15px 15px;
+    padding: 8px;
+    margin: 0px;
+}
 
-margin-top: 16px;
+
+.grid-item-button {
+    width: fit-content;
+    box-shadow: 3px 4px 0px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
 }
 
 .grid-container {
@@ -128,7 +144,7 @@ margin-top: 16px;
   }
   .grid-item img {
 
-    height: 280px;
+    height: 260px;
     width: 280px;
   }
 }
