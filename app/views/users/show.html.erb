@@ -1,10 +1,13 @@
 <!-- show.html.erb THIS IS FOR THE CAREGIVER TO BE ABLE TO SEE THE SENIORS BUTTONS -->
 <div class="main-container" style="display: flex">
   <div class="vertical-navbar-container" style="flex: 16%">
-    <%= render 'shared/vertical-navbar' %>
+    <%= render 'shared/vertical-navbar', current_senior:@senior %>
   </div>
-  <div class="container-dashboard pt-2" style="flex: 84%">
+  <div class="container-dashboard" style="flex: 84%">
     <div class="card-container">
+      <div class="container mb-4" id="activebuttons">
+        <%= render 'shared/button-card' %>
+      </div>
       <div class="container d-flex p-0">
         <div class="container pt-3" style="flex: 40%" id="profile">
           <h3>Profile</h3>
@@ -22,9 +25,6 @@
             <%= render 'shared/line-card'  %>
           </div>
         </div>
-      </div>
-      <div class="container mt-4" id="activebuttons">
-        <%= render 'shared/button-card' %>
       </div>
     </div>
   </div>

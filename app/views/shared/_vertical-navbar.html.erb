@@ -1,9 +1,10 @@
-<div class="vertical-navbar">
+<div class="vertical-navbar mt-4">
   <% if current_user.has_seniors? %>
     <% current_user.seniors.each do |senior|  %>
       <div class="senior-card">
-        <%= render 'shared/senior-card', senior:senior %>
+        <%= render 'shared/senior-card', current_senior:current_senior, senior:senior %>
       </div>
+      <hr>
     <% end %>
     <div class="container">
       <%= link_to "Onboard another senior", new_user_path, class: "btn btn-primary" %>

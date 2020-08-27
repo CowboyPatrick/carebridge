@@ -1,9 +1,13 @@
+#items {
+  margin-top: -14px;
+}
+
 .grid-container {
   display: grid;
   text-align: center;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0px;
   margin: 0 auto;
   height: calc(100vh - 70px);
@@ -76,7 +80,7 @@ margin-top: 16px;
 }
 
 .grid-item-2 img {
-  border-radius: 50%;
+  border-radius: 5px;
   height: 120px;
   width: 120px;
   border: 3px solid rgba(230px, 230px, 30px, 0.4);
