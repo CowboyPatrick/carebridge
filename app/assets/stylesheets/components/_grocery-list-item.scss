@@ -1,3 +1,43 @@
+#field {
+  height: calc(100vh - 90px);
+  overflow: hidden;
+}
+
+.searchbar {
+  position: static;
+  text-align: left;
+  padding-left: 16px;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.leftfield {
+  flex-direction: column;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.rightfield {
+  flex: 50%;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0px;
+  z-index: -1;
+  height: 650px;
+  padding: 0;
+  margin: 0;
+  background-image: image-url('ipad.png');
+   background-size: cover;
+  background-position: center center;
+}
+
+.ipad-contents > form {
+  transform: scale(0.6);
+  margin-top: -38px;
+}
+
 #grocery-items-inactive {
   list-style: none;
   padding: 0;
