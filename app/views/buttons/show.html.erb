@@ -10,7 +10,7 @@
   <!-- </div> -->
   <div class="form-order" style="height: calc(100vh - 145px)">
     <% if @button.provider.name == "Groceries" %>
-      <%= render 'provider_actions/shopping', button: @button %>
+      <%= render 'provider_actions/shopping', button: @button, order: @order %>
     <% elsif @button.provider.name == "FaceTime"  %>
       <%= render 'provider_actions/facetime', button: @button %>
     <% elsif @button.provider.name == "Emergency" %>
