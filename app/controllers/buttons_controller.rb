@@ -23,6 +23,7 @@ class ButtonsController < ApplicationController
 
   def create
     @button = Button.new(button_params)
+    @button.name = @button.provider.name
     @senior = User.find(params[:user_id])
     @button.user = @senior
     authorize @button
