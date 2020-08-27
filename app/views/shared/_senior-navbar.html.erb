@@ -1,0 +1,16 @@
+<div id="senior-navbar" class= "senior-navbar" style="display: flex">
+  <%= link_to buttons_path do %>
+    <div class= "return-page">Return</div>
+  <% end %>
+  <% if button %>
+    <div class= "tilte-page">
+      <h1><%= button.name %></h1>
+    </div>
+    <div class= "next-page">
+      <% if button.name.downcase == "groceries" %>
+        <!-- <button type="button" id="next-page-order">Order Now</button> -->
+        <%= link_to 'Order Now', '#', class: 'order', id: 'next-page-order', disabled: true %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

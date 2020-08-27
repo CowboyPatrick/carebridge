@@ -1,4 +1,14 @@
+<%= render 'shared/senior-navbar', button: @button %>
 <div class="senior-background">
+  <!-- <div class="container tester" "> -->
+  <!--  <div class="col pt-3">
+      <h1 style="text-align: center;margin: 56px 0;">
+      <div class= "return-btn">
+      <<div class="return-btn-triangle"></div> -->
+  <!-- <div class="return-btn-bar"></div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+
   <div class="container" style="height: 100vh">
     <div class="col pt-3">
       <h1 style="text-align: center;margin: 56px 0;"><%= @button.name %></h1>
@@ -10,7 +20,7 @@
           <div class="bk-btn-bar"></div>
         </div>
       </div>
-      <div class="form-order">
+      <div class="form-order" style="height: calc(100vh - 145px)">
         <% if @button.provider.name == "Groceries" %>
           <%= render 'provider_actions/shopping', button: @button %>
         <% elsif @button.provider.name == "FaceTime"  %>
@@ -25,3 +35,4 @@
       </div>
     </div>
   </div>
+
