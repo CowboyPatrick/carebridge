@@ -29,17 +29,17 @@
   justify-content: center;
   top: 0px;
   z-index: -1;
-  height: 650px;
+  height: 610px;
   padding: 0;
   margin: 0;
-  background-image: image-url('ipad.png');
+  background-image: image-url('ipadnofinger.png');
    background-size: cover;
   background-position: center center;
 }
 
 .ipad-contents > form {
   transform: scale(0.6);
-  margin-top: -38px;
+  margin-top: 31px;
 }
 
 #grocery-items-inactive {
