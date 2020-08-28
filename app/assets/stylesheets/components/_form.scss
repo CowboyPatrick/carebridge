@@ -65,7 +65,7 @@
     top:10px;
     box-shadow: 0 0 8px #F26FB0;
     border: 3px solid rgba(100px, 129px, 172px, 0.1);
-    background: #6682E6;
+    background: #F26FB0;
     filter: brightness(0.9);
   }
 }
@@ -103,7 +103,7 @@
 }
 
 .facetime-choice img {
-  border-radius: 48px;
+  border-radius: 15px 15px 0 0;
   opacity: .9;
 
 
@@ -124,9 +124,29 @@
 
 .facetime-choice h1 {
   font-size: 20px;
-  color: white;
+   width: 200px;
+  color:white;
   text-align:center;
   margin-top: 16px;
+  background-color: $bluegray;
+  border-radius: 0 0 15px 15px;
+  padding: 8px;
+  margin: 0px;
+  box-shadow: 3px 4px 0px 0px rgba(0, 0, 0, 0.3);
+
+}
+
+.emergency{
+  font-size: 30px;
+     color:$pink;
+     text-shadow:0 0 2px #C84684;
+     background-color: white;
+     padding: 8px;
+    box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+
+
+
 }
 
 
@@ -159,8 +179,8 @@
 
 
     /* text-align: center; */
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
 
   // border: 3px solid rgba(230px, 230px, 30px, 0.4);
   background-image: cover;
@@ -168,6 +188,14 @@
   margin-bottom: 20px;
 }
 
+.orderlist{
+background-color:white;
+box-shadow: 1px 1px 1px 1px pink;
+border-radius: 10px;
+
+
+
+}
 
 
 
