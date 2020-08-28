@@ -114,13 +114,58 @@ grandma= User.new(first_name: "laura",
 grandma.save
 puts 'saving grandma...'
 
-file = URI.open('app/assets/image/laura.png')
+
+file = URI.open('app/assets/images/laura.png')
 grandma.photo.attach(io: file, filename: 'laura.png', content_type: 'image/png')
 
 file = URI.open("https://image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fwww-cw-com-tw%2Farticle%2F201905%2Farticle-5ccc215628e3a.jpg/?w=1600")
 grandpa.photo.attach(io: file, filename: 'grandpa.jpg', content_type: 'image/jpg')
 
 puts "sweet, photo attached!"
+
+
+
+
+puts "Creating FAKES>>>>>>>>>>>>>>>>>>>>>"
+
+jocelynFAKE = User.create!(first_name: "jocelyn",
+                           last_name: "yuan",
+                           email:"jocelynFAKE@carebridge.us",
+                           password: '123123',
+                           username: "jocelynpractice")
+puts "made!  Now on to the real test.  GrandParents"
+grandpaFAKE = User.new(first_name: "bob",
+                       last_name:"yuan",
+                       email:"bobFAKE@carebridge.us",
+                       password: '123123',
+                       username: "bobpractice",
+                       caregiver_id: jocelynFAKE.id,
+                       address: "1745 Broadway, New York, NY 10019, United States",
+                       birthday: "February 29, 1947",
+                       credit: "****-****-****-1234" )
+grandpaFAKE.save
+puts 'grandma...'
+grandmaFAKE= User.new(first_name: "laura",
+                      last_name:"Chen",
+                      email:"lauraFAKE@carebridge.us",
+                      password: '123123',
+                      username: "laurapractice",
+                      caregiver_id: jocelynFAKE.id,
+                      address: "5003 16th Ave NE Seattle, WA 98105, United States",
+                      birthday: "December 25, 1951",
+                      credit: "****-****-****-4321" )
+grandmaFAKE.save
+puts 'saving FAKE grandma...'
+
+
+
+file = URI.open('app/assets/images/laura.png')
+grandmaFAKE.photo.attach(io: file, filename: 'laura.png', content_type: 'image/png')
+
+file = URI.open("https://image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fwww-cw-com-tw%2Farticle%2F201905%2Farticle-5ccc215628e3a.jpg/?w=1600")
+grandpaFAKE.photo.attach(io: file, filename: 'grandpa.jpg', content_type: 'image/jpg')
+
+puts 'fake shit added'
 
 puts "Creating Providers!"
 puts "Groceries....."
