@@ -193,6 +193,11 @@ taxi = Provider.create!(name: "Taxi")
 file = URI.open('app/assets/images/taxi.png')
 taxi.photo.attach(io: file, filename: 'taxi.png', content_type: 'image/png')
 
+puts "toilet......"
+toilet = Provider.create!(name: "Restrooms")
+file = URI.open('app/assets/images/lu.png')
+toilet.photo.attach(io: file, filename: 'lu.png', content_type: 'image/png')
+
 # file = URI.open("https://i.pinimg.com/originals/f6/db/eb/f6dbeb17951cb9d12c450eb26e42e484.jpg")
 # shopping_btn = Button.create!(user: grandpa,
 #                               provider: groceries,
