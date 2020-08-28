@@ -1,3 +1,30 @@
+.toilet-link {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+.grid-item-toilet {
+  border: 12px outset white;
+  font-size: 120px;
+  color: white;
+  align-items: center;
+  background-color: #FF4F79;
+  padding: 16px;
+  text-decoration: none;
+  width: 230px;
+  border-radius: 12px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.toilet {
+  min-height: 90px;
+}
+
 .vertical-navbar {
   display: flex;
   flex-direction: column;
