@@ -90,16 +90,32 @@ jocelyn = User.create!(first_name: "jocelyn",
                        email:"jocelyn@carebridge.us",
                        password: '123123',
                        username: "jocelyn")
-puts "made!  Now on to the real test.  Grandpa!"
+puts "made!  Now on to the real test.  GrandParents"
 grandpa = User.new(first_name: "bob",
                    last_name:"yuan",
                    email:"bob@carebridge.us",
                    password: '123123',
                    username: "bob",
-                   caregiver_id: jocelyn.id)
+                   caregiver_id: jocelyn.id,
+                   address: "1745 Broadway, New York, NY 10019, United States",
+                   birthday: "February 29, 1947",
+                   credit: "****-****-****-1234" )
 grandpa.save
+puts 'grandma...'
+grandma= User.new(first_name: "laura",
+                  last_name:"Chen",
+                  email:"laura@carebridge.us",
+                  password: '123123',
+                  username: "laura",
+                  caregiver_id: jocelyn.id,
+                  address: "5003 16th Ave NE Seattle, WA 98105, United States",
+                  birthday: "December 25, 1951",
+                  credit: "****-****-****-4321" )
+grandma.save
+puts 'saving grandma...'
 
-
+file = URI.open('app/assets/image/laura.png')
+grandma.photo.attach(io: file, filename: 'laura.png', content_type: 'image/png')
 
 file = URI.open("https://image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fwww-cw-com-tw%2Farticle%2F201905%2Farticle-5ccc215628e3a.jpg/?w=1600")
 grandpa.photo.attach(io: file, filename: 'grandpa.jpg', content_type: 'image/jpg')
