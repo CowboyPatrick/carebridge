@@ -70,9 +70,14 @@
       <% end %>
     </div>
   </div>
-  <div class="rightfield">
-    <div class="ipad-contents">
-      <%= render 'provider_actions/shopping', button: @button, order: nil %>
+  <div class="rightfield-container">
+    <div class="rightfield mb-0">
+      <div class="ipad-contents">
+        <%= render 'provider_actions/shopping', button: @button, order: nil %>
+      </div>
+    </div>
+    <div class="note">
+      <h3 style="text-align: center"><em><%= @provider_action.user.first_name.capitalize %>'s App Layout</em></h3>
     </div>
   </div>
 </div>
