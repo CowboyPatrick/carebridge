@@ -1,1 +1,23 @@
-emergency.html.erb
+<div class="d-flex">
+  <div class="container" style="flex: 30%">
+    <h1>Emergency</h1>
+    <%= simple_form_for [ @senior, @provider_action ] do |f| %>
+      <%= f.input :provider_id, input_html: { value: @provider.id }, as: :hidden %>
+      <%= f.input :name %>
+      <%= f.input :facetime_id %>
+      <%= f.button :submit, "Add  Emergency Contact", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="container" id="inactive" style="flex: 70%">
+    <h1>Contact</h1>
+    <% @provider.provider_actions.where(user: @senior).each do |item| %>
+      <div class="ftcard">
+        <%= cl_image_tag (item.photo.attached? ? item.photo.key : "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" )%>
+        <p><%= item.name %></p>
+        <div class="ftcard-info">
+          <p><%= item.facetime_id %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
