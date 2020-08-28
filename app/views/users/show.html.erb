@@ -11,21 +11,25 @@
       <div class="container d-flex p-0">
         <div class="container pt-3" style="flex: 40%" id="profile">
           <h3>Profile</h3>
-          <p>Fav color magenta</p>
-          <p>69 years old</p>
-          <p>Address??</p>
+          <div class="container mt-4">
+            <p><strong>Name:</strong> <%= @senior.first_name.capitalize%> <%= @senior.last_name.capitalize %></p>
+            <p><strong>Age: </strong><%= @senior.birthday %></p>
+            <p><strong>Address: </strong> <%= @senior.address %></p>
+            <p><strong>CC: </strong> <%= @senior.credit %></p>
+          </div>
           <!-- render settings page -->
         </div>
         <div class="d-flex" style="flex-direction: column, flex: 60%">
           <div class="container mx-3 pt-3" id="orders">
             <h3>Recent Order</h3>
-            <% total = 0.00 %>
+            <p><% total = 0.00 %></p>
             <% if @senior.orders.last %>
               <% @senior.orders.last.provider_actions.each do |item| %>
-                <p><%= item.name %></p>
+                <tr><%= item.name %></tr>
+                <hr>
                 <% total += item.price %>
               <% end %>
-              <h2>total: <%= total  %></h2>
+              <h5 style="text-align: right">total: <%= total  %></h5>
             <% end %>
           </div>
           <div class="container py-4" id="line">
