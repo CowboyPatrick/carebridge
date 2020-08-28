@@ -18,8 +18,13 @@
         </div>
         <div class="d-flex" style="flex-direction: column, flex: 60%">
           <div class="container mx-3 pt-3" id="orders">
-            <h3>Recent Orders</h3>
-            <%= render 'shared/orders' %>
+            <h3>Recent Order</h3>
+            <% total = 0.00 %>
+            <% @senior.orders.last.provider_actions.each do |item| %>
+              <p><%= item.name %></p>
+              <% total += item.price %>
+            <% end %>
+            <h2>total: <%= total  %></h2>
           </div>
           <div class="container py-4" id="line">
             <%= render 'shared/line-card'  %>
