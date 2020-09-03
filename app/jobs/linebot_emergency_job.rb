@@ -8,7 +8,7 @@ class LinebotEmergencyJob < ApplicationJob
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
       config.channel_token = ENV["LINE_ACCESS_TOKEN"]
     }
-    order_message = "Hello, #{senior.caregiver.first_name.capitalize}. #{senior.first_name.capitalize} has signaled an emergency!\nhttps://www.google.com/maps/search/35.6324597,139.7013585#{coordinates}"
+    order_message = "Hello, #{senior.caregiver.first_name.capitalize}. #{senior.first_name.capitalize} has signaled an emergency!\nhttps://www.google.com/maps/search/#{coordinates}"
 
     message = {
       type: 'text',
